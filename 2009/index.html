@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>自民党衆院議員 派閥別名簿 2009</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+
+/* Layout: 2026年版と同じ名簿アプリの型。時点の切り替えを見出しの上に置き、タブで切り口を替える。議員を押すと詳細パネル。 */
+:root{
+  --bg:#f2f3f5; --surface:#ffffff; --ink:#1a2030; --muted:#5b6274; --line:#d8dbe3; --soft:#e9ebf0;
+  --accent:#2c3e8f; --shu:#2c3e8f; --san:#8a9bd8; --scrim:rgba(20,24,36,.38);
+  --k-member:#1f6b4f; --k-old:#2c3e8f; --k-left:#7a5a17; --k-est:#9a4a2f; --k-none:#6b7183;
+  --f-aso:#1f6b4f; --f-abe:#2c3e8f; --f-motegi:#a0522d; --f-kishida:#2f7fa3; --f-nikai:#8a5a9e;
+  --f-moriyama:#a8841a; --f-bancho:#8c6b3e; --f-nami:#b84a6a; --sk-smd:#2c3e8f; --sk-fk:#8a9bd8; --sk-pr:#c9ccd4; --f-suga:#c0567a; --f-ishiba:#5f7a2a; --f-tanigaki:#3f8a84; --f-none:#8a8f9c;
+  --ag1:#e6f0e3; --ag2:#b9d6b0; --ag3:#86b87a; --ag4:#538f48; --ag5:#2c5e26;
+  --tb1:#dfe5f5; --tb2:#aebcea; --tb3:#7189d4; --tb4:#3f57a8; --tb5:#1c2a66;
+  --on-f:#ffffff; --kin-nat:#7a3b6e; --kin-loc:#c79bbd; --kin-na:#c9ccd4;
+  --display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12151c; --surface:#1a1e29; --ink:#e6e8ee; --muted:#9aa0b0; --line:#2c3242; --soft:#222838;
+  --accent:#8fa2ec; --shu:#8fa2ec; --san:#4d5c96; --scrim:rgba(0,0,0,.55);
+  --k-member:#6cc7a0; --k-old:#8fa2ec; --k-left:#d9b36a; --k-est:#e79b7d; --k-none:#9aa0b0;
+  --f-aso:#5fbf94; --f-abe:#8fa2ec; --f-motegi:#e0946a; --f-kishida:#6ab8dc; --f-nikai:#c39ad6;
+  --f-moriyama:#d9b850; --f-bancho:#c9a46e; --f-nami:#e7889f; --sk-smd:#8fa2ec; --sk-fk:#4d5c96; --sk-pr:#3a4050; --f-suga:#e78fae; --f-ishiba:#a3bf63; --f-tanigaki:#6fc4bd; --f-none:#7d8394;
+  --ag1:#25331f; --ag2:#3b5534; --ag3:#5b8550; --ag4:#8cba80; --ag5:#c5e3bc;
+  --tb1:#2a3150; --tb2:#3d4a80; --tb3:#5a6fb8; --tb4:#8b9ee0; --tb5:#c4cff5;
+  --on-f:#12151c; --kin-nat:#d48cc4; --kin-loc:#7d5574; --kin-na:#3a4050; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12151c; --surface:#1a1e29; --ink:#e6e8ee; --muted:#9aa0b0; --line:#2c3242; --soft:#222838;
+  --accent:#8fa2ec; --shu:#8fa2ec; --san:#4d5c96; --scrim:rgba(0,0,0,.55);
+  --k-member:#6cc7a0; --k-old:#8fa2ec; --k-left:#d9b36a; --k-est:#e79b7d; --k-none:#9aa0b0;
+  --f-aso:#5fbf94; --f-abe:#8fa2ec; --f-motegi:#e0946a; --f-kishida:#6ab8dc; --f-nikai:#c39ad6;
+  --f-moriyama:#d9b850; --f-bancho:#c9a46e; --f-nami:#e7889f; --sk-smd:#8fa2ec; --sk-fk:#4d5c96; --sk-pr:#3a4050; --f-suga:#e78fae; --f-ishiba:#a3bf63; --f-tanigaki:#6fc4bd; --f-none:#7d8394;
+  --ag1:#25331f; --ag2:#3b5534; --ag3:#5b8550; --ag4:#8cba80; --ag5:#c5e3bc;
+  --tb1:#2a3150; --tb2:#3d4a80; --tb3:#5a6fb8; --tb4:#8b9ee0; --tb5:#c4cff5;
+  --on-f:#12151c; --kin-nat:#d48cc4; --kin-loc:#7d5574; --kin-na:#3a4050; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.65;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.3;text-wrap:balance}
+h1{font-size:clamp(26px,5.6vw,40px);font-weight:800}
+h2{font-size:clamp(18px,3.2vw,22px);font-weight:800}
+h3{font-size:16px;font-weight:800}
+p{margin:0}
+button{font:inherit;color:inherit}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted);font-weight:700}
+.lede{color:var(--muted);max-width:66ch}
+.note{font-size:13px;color:var(--muted);max-width:72ch}
+header{display:flex;flex-direction:column;gap:10px}
+.totals{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.totals b{color:var(--ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:6;overflow-x:auto}
+.tabs button{border:0;background:transparent;padding:10px 14px;font-size:15px;font-weight:700;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.view{display:flex;flex-direction:column;gap:24px}
+
+.chart{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;align-items:center;font-size:13px;font-variant-numeric:tabular-nums}
+.chart .lab{white-space:nowrap;display:flex;align-items:center;gap:6px}
+.chart .bar{display:flex;height:14px;background:var(--soft);border-radius:2px;overflow:hidden;min-width:0}
+.chart .bar i{display:block;height:100%}
+.chart .num{text-align:right;color:var(--muted);white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--muted)}
+.sw{display:inline-block;width:10px;height:10px;border-radius:2px;flex:none}
+
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--surface)}
+.seg button{font-size:13px;padding:6px 12px;border:0;background:transparent;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+input[type=search],select{font:inherit;font-size:14px;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);min-width:0}
+input[type=search]{flex:1 1 180px}
+.count{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+.group{display:flex;flex-direction:column;gap:10px}
+.ghead{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.ghead .gn{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px}
+.m{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:8px 10px;display:flex;flex-direction:column;gap:3px;min-width:0;text-align:left;cursor:pointer;width:100%}
+.m:hover{border-color:var(--accent)}
+.m .top{display:flex;align-items:baseline;gap:6px 8px;flex-wrap:wrap}
+.m .nm{font-weight:700;font-size:15px}
+.m .dist{font-size:13px;color:var(--muted)}
+.m .post{font-size:12px;font-weight:700;color:var(--ink)}
+.chip{font-size:11px;font-weight:700;padding:0 6px;border-radius:3px;border:1px solid currentColor;white-space:nowrap;line-height:1.6}
+.fchip{font-size:11px;font-weight:700;padding:0 6px;border-radius:3px;white-space:nowrap;line-height:1.7;color:var(--on-f)}
+.h-衆{color:var(--shu)} .h-参{color:var(--muted)}
+.k-member{color:var(--k-member)} .k-old{color:var(--k-old)} .k-left{color:var(--k-left)} .k-est{color:var(--k-est)} .k-none{color:var(--k-none)}
+.m.est{border-left:3px solid var(--k-est)} .m.left{border-left:3px solid var(--k-left)}
+.m .why{font-size:12px;color:var(--muted);line-height:1.5}
+.new{font-size:11px;color:var(--k-est);font-weight:700}
+.empty{color:var(--muted);font-size:14px;padding:12px 0}
+
+/* 一覧 */
+.tblwrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:4px;max-height:75vh;overflow-y:auto}
+table.all{border-collapse:separate;border-spacing:0;font-size:13px;width:100%;min-width:1080px;font-variant-numeric:tabular-nums}
+table.all th,table.all td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap;vertical-align:middle}
+table.all th{position:sticky;top:0;background:var(--surface);z-index:2;font-size:12px;color:var(--muted);font-weight:700}
+table.all th button{all:unset;cursor:pointer;display:inline-flex;gap:3px;align-items:center}
+table.all th button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+table.all th[aria-sort="ascending"] button::after{content:"▲";font-size:9px}
+table.all th[aria-sort="descending"] button::after{content:"▼";font-size:9px}
+table.all th[aria-sort] {color:var(--ink)}
+table.all td:first-child,table.all th:first-child{position:sticky;left:0;background:var(--surface);z-index:1}
+table.all th:first-child{z-index:3}
+table.all tbody tr{cursor:pointer}
+table.all tbody tr:hover td{background:var(--soft)}
+table.all td.num{text-align:right}
+table.all td.wcol{white-space:normal;min-width:9em}
+table.all .nm{font-weight:700}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+/* 経歴 */
+.coh{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:center;font-size:13px;font-variant-numeric:tabular-nums}
+.coh button.lab{all:unset;cursor:pointer;white-space:nowrap;padding:2px 4px;border-radius:3px}
+.coh button.lab[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+.coh button.lab:focus-visible{outline:2px solid var(--accent)}
+.coh .bar{display:flex;height:16px;background:var(--soft);border-radius:2px;overflow:hidden;cursor:pointer}
+.coh .bar i{display:block;height:100%}
+.coh .num{color:var(--muted);white-space:nowrap}
+.kcgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.kcbox{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.kcbox h3{font-family:var(--body);font-size:15px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.kcrow{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;font-size:13px}
+.match{font-size:11px;color:var(--accent);font-weight:700}
+.zmini{font-size:11px;color:var(--muted)}
+.hsrow{display:grid;grid-template-columns:minmax(0,10em) 1fr;gap:4px 12px;padding:6px 0;border-top:1px solid var(--line);align-items:start}
+.hsrow .boss{font-weight:700;font-size:14px}
+
+/* 族 */
+.zgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:8px}
+.zc{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:8px 10px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:5px;width:100%;color:inherit;font:inherit}
+.zc:hover{border-color:var(--accent)}
+.zc.big{border-left:3px solid var(--accent)}
+.zgrade{font-size:11px;font-weight:700;padding:0 6px;border-radius:3px;line-height:1.7;border:1px solid var(--accent);color:var(--accent)}
+.zgrade.big{background:var(--accent);color:var(--surface)}
+.zev{display:flex;flex-wrap:wrap;gap:4px}
+.zev span{font-size:11.5px;padding:0 7px;border-radius:999px;border:1px solid var(--line);color:var(--muted);line-height:1.7}
+.zev span.cur{border-color:var(--accent);color:var(--ink)}
+.heat{overflow-x:auto}
+table.heat{border-collapse:collapse;font-size:12px;font-variant-numeric:tabular-nums;min-width:640px}
+table.heat th,table.heat td{padding:5px 6px;border:1px solid var(--line);text-align:center;white-space:nowrap}
+table.heat th{font-weight:700;color:var(--muted);background:var(--surface)}
+table.heat td.lab{text-align:left;background:var(--surface)}
+table.heat td button{all:unset;cursor:pointer;display:block;min-width:1.6em}
+
+/* ポスト */
+.ptable{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+.prow{display:grid;grid-template-columns:minmax(0,11em) minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line);text-align:left;background:transparent;border-left:0;border-right:0;border-top:0;width:100%}
+.prow:last-child{border-bottom:0}
+button.prow{cursor:pointer} button.prow:hover{background:var(--soft)}
+.prow .role{font-size:13px;color:var(--muted)}
+.prow .pn{font-weight:700}
+.prow .pn small{font-weight:400;color:var(--muted);font-size:12px;margin-left:6px}
+.prow .tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.psum{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.psum .box{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+
+/* 当選回数 */
+.terms{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink);background:var(--soft);border-radius:3px;padding:0 6px;line-height:1.7;white-space:nowrap}
+/* 総裁選 */
+.racesum{overflow-x:auto}
+.racecols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.racecol{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:10px 12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.racecol h3{font-family:var(--body);font-size:16px}
+.rrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;align-items:center;padding:4px 0;border-top:1px solid var(--line);background:none;border-left:0;border-right:0;border-bottom:0;text-align:left;cursor:pointer;width:100%}
+.rrow:hover{background:var(--soft)}
+.rrow .rp{grid-column:1/-1;font-size:12px;color:var(--muted)}
+.rrow .rp.on{color:var(--ink);font-weight:700}
+.sanc{font-size:11px;font-weight:700;color:var(--k-est);border:1px solid currentColor;border-radius:3px;padding:0 5px;line-height:1.6;white-space:nowrap}
+.su{font-size:11px;font-weight:700;color:var(--accent);border:1px solid currentColor;border-radius:3px;padding:0 5px;line-height:1.6;white-space:nowrap}
+.meta{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+/* 獲得率 */
+.ratewrap{overflow-x:auto}
+.rate{display:grid;grid-template-columns:auto minmax(140px,1fr) auto auto;gap:8px 12px;align-items:center;font-size:13px;font-variant-numeric:tabular-nums;min-width:420px}
+.rate .hd{font-size:12px;color:var(--muted);font-weight:700}
+.rate .rbar{position:relative;height:16px;background:var(--soft);border-radius:2px}
+.rate .rbar i{position:absolute;left:0;top:0;bottom:0;border-radius:2px}
+.rate .rbar b{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink)}
+.rate .num{text-align:right;white-space:nowrap}
+.rate .sub{text-align:right;color:var(--muted);white-space:nowrap}
+/* 血縁 */
+.pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
+.pair{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:10px 12px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px}
+.node{border:2px solid var(--line);border-radius:999px;padding:4px 10px;text-align:center;font-weight:700;background:var(--surface);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0}
+.node small{font-weight:400;font-size:11px;color:var(--muted)}
+.link{display:flex;flex-direction:column;align-items:center;font-size:11px;color:var(--muted);min-width:56px}
+.link::before{content:"";display:block;width:100%;height:2px;background:var(--accent);margin-bottom:3px}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.kc{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:8px 10px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:4px;width:100%}
+.kc:hover{border-color:var(--accent)}
+.kc .rel{font-size:13px;color:var(--muted)}
+.kc .rel b{color:var(--ink);font-weight:500}
+
+.degwrap{overflow-x:auto}
+.deg{display:grid;grid-template-columns:auto repeat(7,minmax(34px,1fr));gap:4px;font-size:12px;font-variant-numeric:tabular-nums;min-width:380px;align-items:end}
+.deg .col{display:flex;flex-direction:column-reverse;height:120px;background:var(--soft);border-radius:2px;overflow:hidden}
+.deg .col i{display:block;width:100%}
+.deg .lab{text-align:center;color:var(--muted)}
+.deg .rl{color:var(--muted);align-self:center;white-space:nowrap}
+.relchip{display:inline-flex;gap:4px;align-items:baseline;padding:1px 8px;border-radius:999px;font-size:12px;border:1px solid var(--line);background:var(--surface)}
+.relchip.nat{border-color:var(--kin-nat)}
+.relchip .d{font-size:11px;color:var(--muted)}
+.relchip b{font-weight:700}
+.relchips{display:flex;flex-wrap:wrap;gap:4px}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.bc{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:10px 12px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:6px;width:100%;color:inherit;font:inherit}
+.bc:hover{border-color:var(--accent)}
+.bc .bh{font-size:13px;line-height:1.7}
+.bc ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:2px;font-size:12.5px;line-height:1.6}
+.bc li{display:grid;grid-template-columns:6.5em 1fr;gap:6px}
+.bc li .r{color:var(--muted)}
+.bc li b{font-weight:700}
+.btag{display:inline-block;font-size:11px;padding:0 7px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.btag.core{border-color:var(--accent);color:var(--accent)}
+.bsum{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+.bsum .rs{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:8px 10px;display:flex;flex-direction:column;gap:2px;font-size:12.5px;color:var(--muted)}
+.bsum .rs b{font-size:20px;color:var(--ink);font-family:var(--serif,inherit)}
+.blinks{display:flex;flex-direction:column;gap:6px}
+.blink{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:8px 10px}
+.blink .why{color:var(--muted);flex-basis:100%}
+/* 地縁 */
+.mapwrap{overflow-x:auto;padding-bottom:6px}
+.jmap{display:grid;grid-template-columns:repeat(13,44px);grid-auto-rows:44px;gap:3px;width:max-content}
+.tile{border:0;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;padding:0;line-height:1.15;color:var(--on-f)}
+.tile .tn{font-size:11px;font-weight:700}
+.tile .tc{font-size:12px;font-variant-numeric:tabular-nums}
+.tile[aria-pressed="true"]{outline:3px solid var(--ink);outline-offset:1px}
+.tile.zero{background:var(--soft);color:var(--muted)}
+.regionpanel{display:flex;flex-direction:column;gap:10px}
+.blocks{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
+.blk{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:8px 10px;display:flex;flex-direction:column;gap:6px}
+.names{display:flex;flex-wrap:wrap;gap:6px}
+.nbtn{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:2px 10px 2px 6px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.nbtn:hover{border-color:var(--accent)}
+.succ{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+.srow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:8px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line)}
+.srow:last-child{border-bottom:0}
+.srow .from{color:var(--muted);text-align:right}
+.srow .arrow{font-size:12px;color:var(--muted);text-align:center;white-space:nowrap}
+.srow .to{font-weight:700;background:none;border:0;text-align:left;cursor:pointer;padding:0}
+
+/* 詳細パネル */
+[hidden]{display:none!important}
+.pkana{font-size:12px;color:var(--muted);letter-spacing:.08em;line-height:1.2}
+.scrim{position:fixed;inset:0;background:var(--scrim);z-index:20}
+.panel{position:fixed;z-index:21;background:var(--surface);color:var(--ink);overflow-y:auto;box-shadow:0 10px 40px rgba(0,0,0,.25);display:flex;flex-direction:column;gap:14px;
+  right:0;top:0;bottom:0;width:min(420px,100%);padding:calc(18px + env(safe-area-inset-top,0px)) max(18px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) 18px;border-left:1px solid var(--line)}
+@media (max-width:640px){.panel{top:auto;left:0;width:100%;max-height:82vh;border-radius:12px 12px 0 0;border-left:0;border-top:1px solid var(--line);padding-left:max(18px,env(safe-area-inset-left,0px))}}
+.panel .phead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.panel .pname{font-family:var(--display);font-size:26px;font-weight:800}
+.close{border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:4px 10px;cursor:pointer;font-size:13px;flex:none}
+.dl{display:grid;grid-template-columns:5.5em 1fr;gap:6px 12px;font-size:14px}
+.dl dt{color:var(--muted);font-size:13px}
+.dl dd{margin:0;min-width:0}
+.ext{display:flex;flex-wrap:wrap;gap:8px}
+.ext a{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--accent);border-radius:6px;color:var(--accent);text-decoration:none;font-size:14px;font-weight:700}
+.ext a:hover{background:var(--soft)}
+.rel-list{display:flex;flex-direction:column;gap:4px}
+.rel-list button{background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;cursor:pointer;font-weight:700}
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.method div{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:10px 12px;font-size:13px;color:var(--muted)}
+.method h3{margin:0 0 4px;font-size:14px;color:var(--ink);font-family:var(--body)}
+.sources{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.sources a{color:var(--accent);word-break:break-all}
+@media (max-width:520px){.list{grid-template-columns:1fr}.chart{grid-template-columns:auto 1fr}.chart .num{grid-column:2;text-align:left;margin-top:-4px}
+  .prow{grid-template-columns:1fr auto}.prow .role{grid-column:1/-1}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+
+.years{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px}
+.years a,.years span.y{padding:3px 10px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink);background:var(--surface);font-variant-numeric:tabular-nums}
+.years a:hover{border-color:var(--accent)}
+.years span.cur{background:var(--accent);color:var(--surface);border-color:var(--accent)}
+.years .soon{color:var(--muted);border-style:dashed;background:transparent}
+.k-doc{color:var(--k-member)} .k-art{color:var(--k-old)} .m.none{border-left:3px solid var(--k-none)}
+.lost{font-size:11px;font-weight:700;color:var(--k-est);border:1px solid currentColor;border-radius:3px;padding:0 5px;line-height:1.6;white-space:nowrap}
+.surv{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.surv .box{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.surv .big{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;font-family:var(--display)}
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+  <nav class="years" id="years" aria-label="時点の切り替え"></nav>
+  <div class="eyebrow" id="eyebrow"></div>
+  <h1 id="h1"></h1>
+  <p class="lede" id="lede"></p>
+  <p class="note" id="memo"></p>
+  <p class="note" style="border-left:3px solid var(--line);padding-left:10px" id="about"></p>
+  <div class="totals" id="totals"></div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="表示の切り替え">
+  <button role="tab" id="t-faction" aria-controls="v-faction" aria-selected="true" data-view="faction">派閥</button>
+  <button role="tab" id="t-all" aria-controls="v-all" aria-selected="false" data-view="all">全員一覧</button>
+  <button role="tab" id="t-post" aria-controls="v-post" aria-selected="false" data-view="post">ポスト</button>
+  <button role="tab" id="t-career" aria-controls="v-career" aria-selected="false" data-view="career">経歴</button>
+  <button role="tab" id="t-kin" aria-controls="v-kin" aria-selected="false" data-view="kin">血縁</button>
+  <button role="tab" id="t-region" aria-controls="v-region" aria-selected="false" data-view="region">地縁</button>
+  <button role="tab" id="t-race" aria-controls="v-race" aria-selected="false" data-view="race">総裁選</button>
+</nav>
+
+<!-- 派閥 -->
+<section class="view" id="v-faction" role="tabpanel" aria-labelledby="t-faction">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <h2>派閥ごとの当選者数</h2>
+    <p class="note" id="chartnote"></p>
+    <div class="chart" id="chart"></div>
+    <div class="legend"><span><span class="sw" style="background:var(--sk-smd)"></span> 小選挙区で当選</span><span><span class="sw" style="background:var(--sk-fk)"></span> 比例で復活</span><span><span class="sw" style="background:var(--sk-pr)"></span> 比例単独</span></div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <h2>派閥ごとの当選回数</h2>
+    <p class="note" id="termnote"></p>
+    <div class="chart" id="termchart"></div>
+    <div class="legend" id="termlegend"></div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <h2>派閥ごとの年齢</h2>
+    <p class="note" id="agenote"></p>
+    <div class="chart" id="agechart"></div>
+    <div class="legend" id="agelegend"></div>
+  </div>
+  <div class="controls" role="group" aria-label="絞り込み">
+    <select id="kind" aria-label="絞り込み">
+      <option value="">すべての議員</option>
+      <option value="doc">所属を当時の資料で確認</option>
+      <option value="art">所属を本人の記事で確認</option>
+      <option value="est">推定</option>
+      <option value="none">無派閥・未判明</option>
+      <option value="smd">小選挙区で当選</option>
+      <option value="fk">比例で復活</option>
+      <option value="pr">比例単独</option>
+      <option value="new">初当選</option>
+      <option value="post">ポストに就いていた</option>
+      <option value="cab">閣僚経験あり</option>
+    </select>
+    <select id="sort" aria-label="並び順">
+      <option value="">並び：分類の根拠順</option>
+      <option value="terms">並び：当選回数の多い順</option>
+      <option value="termsAsc">並び：当選回数の少ない順</option>
+      <option value="young">並び：年齢の若い順</option>
+      <option value="old">並び：年齢の高い順</option>
+      <option value="cab">並び：閣僚経験の多い順</option>
+    </select>
+    <input type="search" id="q" placeholder="氏名・選挙区・ポスト・「当選3回」で検索" aria-label="氏名・選挙区・ポストで検索">
+    <span class="count" id="count"></span>
+  </div>
+  <div id="groups" style="display:flex;flex-direction:column;gap:28px"></div>
+</section>
+
+<!-- 全員一覧 -->
+<section class="view" id="v-all" role="tabpanel" aria-labelledby="t-all" hidden>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <h2>派閥を横断した全議員の一覧</h2>
+    <p class="note">列の見出しを押すと並べ替え、もう一度押すと逆順になる。行を押すと詳細が開く。スマホでは表を横にスクロールできる（氏名の列は固定）。</p>
+  </div>
+  <div class="controls" role="group" aria-label="一覧の絞り込み">
+    <select id="afilter" aria-label="絞り込み">
+      <option value="">すべての議員</option>
+      <option value="post">ポストに就いていた</option>
+      <option value="her">政治家の親族あり</option>
+      <option value="fk">比例で復活</option>
+      <option value="new">初当選</option>
+      <option value="race">総裁選の推薦人</option>
+    </select>
+    <input type="search" id="aq" placeholder="氏名・選挙区・派閥・ポストで検索" aria-label="一覧を検索">
+    <span class="count" id="acount"></span>
+  </div>
+  <div class="tblwrap"><table class="all" id="alltbl"><thead><tr id="ahead"></tr></thead><tbody id="abody"></tbody></table></div>
+</section>
+
+<!-- ポスト -->
+<section class="view" id="v-post" role="tabpanel" aria-labelledby="t-post" hidden>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <h2 id="survh"></h2>
+    <p class="note" id="survnote"></p>
+    <div class="surv" id="surv"></div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <h2>どの派閥がポストを握っていたか</h2>
+    <p class="note">当選した自民党議員のうち、閣僚・副大臣・政務官・党執行部に就いていた人を出身派閥で数えた。</p>
+    <div class="psum" id="psum"></div>
+  </div>
+  <div id="postlists" style="display:flex;flex-direction:column;gap:24px"></div>
+</section>
+
+<!-- 経歴 -->
+<section class="view" id="v-career" role="tabpanel" aria-labelledby="t-career" hidden>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <h2>当選同期</h2>
+    <p class="note" id="cohnote"></p>
+    <div class="coh" id="cohchart"></div>
+    <div id="cohlist"></div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <h2>当選が途切れたことのある議員</h2>
+    <p class="note">初当選から今回までの総選挙のうち、当選しなかった回がある議員（落選・不出馬など）。</p>
+    <div class="names" id="gaplist"></div>
+  </div>
+</section>
+
+<!-- 血縁 -->
+<section class="view" id="v-kin" role="tabpanel" aria-labelledby="t-kin" hidden>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <h2>名簿の中でつながる議員</h2>
+    <p class="note" id="pairsnote"></p>
+    <div class="pairs" id="pairs"></div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <h2>派閥ごとの世襲の濃さ</h2>
+    <p class="note">親・祖父母・おじ・岳父など、本人より前の世代や同世代に政治家がいる議員の割合。子や娘婿など、のちに政治家になった親族は数に入れていない。国政は国会議員・閣僚・貴族院議員など、地方は知事・市町村長・地方議員だけの場合。</p>
+    <div class="chart" id="kinchart"></div>
+    <div class="legend"><span><span class="sw" style="background:var(--kin-nat)"></span> 国政の親族あり</span><span><span class="sw" style="background:var(--kin-loc)"></span> 地方政治の親族のみ</span><span><span class="sw" style="background:var(--line)"></span> 政治家の親族なし</span></div>
+  </div>
+  <div class="controls">
+    <div class="seg" id="kinfilter">
+      <button type="button" aria-pressed="true" data-v="">すべて</button>
+      <button type="button" aria-pressed="false" data-v="nat">国政の親族あり</button>
+      <button type="button" aria-pressed="false" data-v="local">地方のみ</button>
+    </div>
+  </div>
+  <div id="kinlists" style="display:flex;flex-direction:column;gap:24px"></div>
+</section>
+
+<!-- 地縁 -->
+<section class="view" id="v-region" role="tabpanel" aria-labelledby="t-region" hidden>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <h2>都道府県ごとの自民党当選者</h2>
+    <p class="note">小選挙区で勝った議員と、小選挙区で敗れて比例で復活した議員を、選挙区の都道府県で数えた。色はその県でいちばん多い派閥。県を押すと顔ぶれが出る。比例単独の議員は下にブロック別でまとめた。</p>
+    <div class="mapwrap"><div class="jmap" id="jmap" role="group" aria-label="都道府県の地図"></div></div>
+    <div class="legend" id="maplegend"></div>
+  </div>
+  <div class="regionpanel" id="regionpanel"></div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <h2>比例ブロックごとの当選者</h2>
+    <p class="note">比例で復活した議員と比例単独の議員を、ブロックごとにまとめた。</p>
+    <div class="blocks" id="blocks"></div>
+  </div>
+</section>
+
+<!-- 総裁選 -->
+<section class="view" id="v-race" role="tabpanel" aria-labelledby="t-race" hidden>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <h2 id="raceh"></h2>
+    <p class="note" id="racenote"></p>
+    <div class="racesum" id="racesum"></div>
+  </div>
+  <div class="racecols" id="racecols"></div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:10px">
+  <h2>分類のしかた</h2>
+  <div class="method" id="method"></div>
+</section>
+
+<section style="display:flex;flex-direction:column;gap:8px">
+  <h2>出典</h2>
+  <div class="sources" id="sources"></div>
+</section>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="pname" hidden>
+  <div class="phead"><div style="display:flex;flex-direction:column;gap:4px;min-width:0"><span id="pkana" class="pkana"></span><span class="pname" id="pname"></span><span id="psub" class="note"></span></div><button class="close" id="pclose" type="button">閉じる</button></div>
+  <div id="pbody" style="display:flex;flex-direction:column;gap:14px"></div>
+</aside>
+
+<script>
+const DATA = {"rows":[{"n":"伊東良孝","h":"衆","g":"志帥会","k":"art","w":"初当選後の9月17日に入会","wiki":"伊東良孝","d":"北海道7区","p":["北海道"],"b":"","sk":"小選挙区","tc":1,"to":0,"age":60,"cab":0,"cabl":[],"x":true},{"n":"江渡聡徳","h":"衆","g":"番町研","k":"art","w":"","wiki":"江渡聡徳","d":"青森2区","p":["青森"],"b":"","sk":"小選挙区","tc":4,"to":0,"age":53,"cab":0,"cabl":[],"x":false},{"n":"大島理森","h":"衆","g":"番町研","k":"art","w":"","wiki":"大島理森","d":"青森3区","p":["青森"],"b":"","sk":"小選挙区","tc":9,"to":0,"age":62,"cab":3,"cabl":["環境庁長官（1995年）","文部大臣（2000年）","科学技術庁長官（2000年）","農林水産大臣（2002年）"],"x":false},{"n":"木村太郎","h":"衆","g":"清和会","k":"doc","w":"","wiki":"木村太郎 (政治家)","d":"青森4区","p":["青森"],"b":"","sk":"小選挙区","tc":5,"to":0,"age":44,"cab":0,"cabl":[],"x":false},{"n":"小野寺五典","h":"衆","g":"宏池会","k":"art","w":"9月の総裁選では派閥の推す谷垣氏ではなく河野氏に投票した","wiki":"小野寺五典","d":"宮城6区","p":["宮城"],"b":"","sk":"小選挙区","tc":4,"to":0,"age":49,"cab":0,"cabl":[],"x":false},{"n":"加藤紘一","h":"衆","g":"無派閥","k":"art","w":"2005年に宏池会を退会","wiki":"加藤紘一","d":"山形3区","p":["山形"],"b":"","sk":"小選挙区","tc":13,"to":0,"age":70,"cab":2,"cabl":["防衛庁長官（1984年）","内閣官房長官（1991年）"],"x":false},{"n":"梶山弘志","h":"衆","g":"無派閥","k":"art","w":"","wiki":"梶山弘志","d":"茨城4区","p":["茨城"],"b":"","sk":"小選挙区","tc":4,"to":0,"age":53,"cab":0,"cabl":[],"x":false},{"n":"茂木敏充","h":"衆","g":"平成研","k":"art","w":"","wiki":"茂木敏充","d":"栃木5区","p":["栃木"],"b":"","sk":"小選挙区","tc":6,"to":0,"age":53,"cab":2,"cabl":["特命担当大臣（科学技術政策）（2003年）","特命担当大臣（沖縄及び北方対策）（2003年）","特命担当大臣（個人情報保護）（2003年）","特命担当大臣（金融）（2008年）"],"x":false},{"n":"福田康夫","h":"衆","g":"清和会","k":"art","w":"","wiki":"福田康夫","d":"群馬4区","p":["群馬"],"b":"","sk":"小選挙区","tc":7,"to":0,"age":73,"cab":4,"cabl":["内閣官房長官（2000年）","沖縄開発庁長官（2000年）","男女共同参画担当大臣（2001年）","内閣府特命担当大臣（男女共同参画）（2003年）","内閣総理大臣（2007年）"],"x":false},{"n":"小渕優子","h":"衆","g":"平成研","k":"doc","w":"","wiki":"小渕優子","d":"群馬5区","p":["群馬"],"b":"","sk":"小選挙区","tc":4,"to":0,"age":35,"cab":1,"cabl":["特命担当大臣（少子化対策）（2008年）","特命担当大臣（男女共同参画）（2008年）"],"x":false},{"n":"森英介","h":"衆","g":"為公会","k":"doc","w":"","wiki":"森英介","d":"千葉11区","p":["千葉"],"b":"","sk":"小選挙区","tc":7,"to":0,"age":60,"cab":1,"cabl":["法務大臣（2008年）"],"x":false},{"n":"浜田靖一","h":"衆","g":"無派閥","k":"doc","w":"","wiki":"浜田靖一","d":"千葉12区","p":["千葉"],"b":"","sk":"小選挙区","tc":6,"to":0,"age":53,"cab":1,"cabl":["防衛大臣（2008年）"],"x":false},{"n":"菅義偉","h":"衆","g":"宏池会","k":"art","w":"9月の総裁選で河野氏を推すため宏池会を退会","wiki":"菅義偉","d":"神奈川2区","p":["神奈川"],"b":"","sk":"小選挙区","tc":5,"to":0,"age":60,"cab":1,"cabl":["総務大臣（2006年）","特命担当大臣（地方分権改革）（2006年）"],"x":false},{"n":"小泉進次郎","h":"衆","g":"無派閥","k":"art","w":"","wiki":"小泉進次郎","d":"神奈川11区","p":["神奈川"],"b":"","sk":"小選挙区","tc":1,"to":0,"age":28,"cab":0,"cabl":[],"x":true},{"n":"河野太郎","h":"衆","g":"為公会","k":"doc","w":"","wiki":"河野太郎","d":"神奈川15区","p":["神奈川"],"b":"","sk":"小選挙区","tc":5,"to":0,"age":46,"cab":0,"cabl":[],"x":false},{"n":"石原伸晃","h":"衆","g":"近未来","k":"doc","w":"","wiki":"石原伸晃","d":"東京8区","p":["東京"],"b":"","sk":"小選挙区","tc":7,"to":0,"age":52,"cab":2,"cabl":["規制改革担当大臣（2001年）","国土交通大臣（2003年）"],"x":false},{"n":"下村博文","h":"衆","g":"清和会","k":"art","w":"","wiki":"下村博文","d":"東京11区","p":["東京"],"b":"","sk":"小選挙区","tc":5,"to":0,"age":55,"cab":0,"cabl":[],"x":false},{"n":"平沢勝栄","h":"衆","g":"近未来","k":"doc","w":"","wiki":"平沢勝栄","d":"東京17区","p":["東京"],"b":"","sk":"小選挙区","tc":5,"to":0,"age":63,"cab":0,"cabl":[],"x":false},{"n":"井上信治","h":"衆","g":"為公会","k":"doc","w":"","wiki":"井上信治","d":"東京25区","p":["東京"],"b":"","sk":"小選挙区","tc":3,"to":0,"age":39,"cab":0,"cabl":[],"x":false},{"n":"宮腰光寛","h":"衆","g":"宏池会","k":"art","w":"","wiki":"宮腰光寛","d":"富山2区","p":["富山"],"b":"","sk":"小選挙区","tc":5,"to":0,"age":58,"cab":0,"cabl":[],"x":false},{"n":"橘慶一郎","h":"衆","g":"無派閥","k":"art","w":"","wiki":"橘慶一郎","d":"富山3区","p":["富山"],"b":"","sk":"小選挙区","tc":1,"to":0,"age":48,"cab":0,"cabl":[],"x":true},{"n":"森喜朗","h":"衆","g":"清和会","k":"art","w":"相談役。2010年9月に退会","wiki":"森喜朗","d":"石川2区","p":["石川"],"b":"","sk":"小選挙区","tc":14,"to":0,"age":72,"cab":0,"cabl":[],"x":false},{"n":"稲田朋美","h":"衆","g":"清和会","k":"art","w":"","wiki":"稲田朋美","d":"福井1区","p":["福井"],"b":"","sk":"小選挙区","tc":2,"to":0,"age":50,"cab":0,"cabl":[],"x":false},{"n":"山本拓","h":"衆","g":"清和会","k":"art","w":"2010年11月に退会","wiki":"山本拓 (政治家)","d":"福井2区","p":["福井"],"b":"","sk":"小選挙区","tc":5,"to":0,"age":57,"cab":0,"cabl":[],"x":false},{"n":"高木毅","h":"衆","g":"清和会","k":"doc","w":"","wiki":"髙木毅","d":"福井3区","p":["福井"],"b":"","sk":"小選挙区","tc":4,"to":0,"age":53,"cab":0,"cabl":[],"x":false},{"n":"棚橋泰文","h":"衆","g":"無派閥","k":"art","w":"2009年2月に津島派を退会","wiki":"棚橋泰文","d":"岐阜2区","p":["岐阜"],"b":"","sk":"小選挙区","tc":5,"to":0,"age":46,"cab":2,"cabl":["内閣府特命担当大臣（科学技術政策）（2004年）","内閣府特命担当大臣（食品安全）（2004年）","内閣府特命担当大臣（食育）（2005年）"],"x":false},{"n":"金子一義","h":"衆","g":"宏池会","k":"doc","w":"","wiki":"金子一義","d":"岐阜4区","p":["岐阜"],"b":"","sk":"小選挙区","tc":8,"to":0,"age":66,"cab":2,"cabl":["内閣府特命担当大臣<br>（規制改革担当）（2003年）","内閣府特命担当大臣<br>（産業再生機構担当）（2003年）","国土交通大臣（2008年）"],"x":false},{"n":"三ツ矢憲生","h":"衆","g":"宏池会","k":"doc","w":"","wiki":"三ツ矢憲生","d":"三重5区","p":["三重"],"b":"","sk":"小選挙区","tc":3,"to":0,"age":58,"cab":0,"cabl":[],"x":false},{"n":"谷垣禎一","h":"衆","g":"宏池会","k":"doc","w":"9月の総裁選に古賀派から出馬し、総裁に選ばれた","wiki":"谷垣禎一","d":"京都5区","p":["京都"],"b":"","sk":"小選挙区","tc":10,"to":0,"age":64,"cab":4,"cabl":["科学技術庁長官（1997年）","国家公安委員会委員長（2002年）","産業再生機構担当大臣（2002年）","財務大臣（2003年）","食品安全担当大臣（2003年）","国土交通大臣（2008年）"],"x":false},{"n":"西野陽","h":"衆","g":"宏池会","k":"art","w":"","wiki":"西野陽","d":"大阪13区","p":["大阪"],"b":"","sk":"小選挙区","tc":5,"to":0,"age":69,"cab":0,"cabl":[],"x":false},{"n":"西村康稔","h":"衆","g":"清和会","k":"doc","w":"","wiki":"西村康稔","d":"兵庫9区","p":["兵庫"],"b":"","sk":"小選挙区","tc":3,"to":0,"age":46,"cab":0,"cabl":[],"x":false},{"n":"田野瀬良太郎","h":"衆","g":"近未来","k":"doc","w":"","wiki":"田野瀬良太郎","d":"奈良4区","p":["奈良"],"b":"","sk":"小選挙区","tc":6,"to":0,"age":65,"cab":0,"cabl":[],"x":false},{"n":"二階俊博","h":"衆","g":"二階G","k":"doc","w":"選挙で当選したのは会長の二階氏だけ。11月5日に伊吹派へ合流","wiki":"二階俊博","d":"和歌山3区","p":["和歌山"],"b":"","sk":"小選挙区","tc":9,"to":0,"age":70,"cab":2,"cabl":["運輸大臣（1999年）","北海道開発庁長官（1999年）","経済産業大臣（2005年）"],"x":false},{"n":"石破茂","h":"衆","g":"平成研","k":"doc","w":"","wiki":"石破茂","d":"鳥取1区","p":["鳥取"],"b":"","sk":"小選挙区","tc":8,"to":0,"age":52,"cab":3,"cabl":["防衛庁長官（2002年）","防衛大臣（2007年）","農林水産大臣（2008年）"],"x":false},{"n":"赤沢亮正","h":"衆","g":"無派閥","k":"art","w":"","wiki":"赤沢亮正","d":"鳥取2区","p":["鳥取"],"b":"","sk":"小選挙区","tc":2,"to":0,"age":48,"cab":0,"cabl":[],"x":false},{"n":"細田博之","h":"衆","g":"清和会","k":"art","w":"","wiki":"細田博之","d":"島根1区","p":["島根"],"b":"","sk":"小選挙区","tc":7,"to":0,"age":65,"cab":3,"cabl":["沖縄及び北方対策担当大臣（2002年）","科学技術政策担当大臣（2002年）","個人情報保護担当大臣（2003年）","内閣官房長官（2004年）","特命担当大臣（男女共同参画）（2004年）"],"x":false},{"n":"竹下亘","h":"衆","g":"平成研","k":"doc","w":"","wiki":"竹下亘","d":"島根2区","p":["島根"],"b":"","sk":"小選挙区","tc":4,"to":0,"age":62,"cab":0,"cabl":[],"x":false},{"n":"逢沢一郎","h":"衆","g":"宏池会","k":"art","w":"","wiki":"逢沢一郎","d":"岡山1区","p":["岡山"],"b":"","sk":"小選挙区","tc":8,"to":0,"age":55,"cab":0,"cabl":[],"x":false},{"n":"加藤勝信","h":"衆","g":"平成研","k":"doc","w":"","wiki":"加藤勝信","d":"岡山5区","p":["岡山"],"b":"","sk":"小選挙区","tc":3,"to":0,"age":53,"cab":0,"cabl":[],"x":false},{"n":"岸田文雄","h":"衆","g":"宏池会","k":"art","w":"","wiki":"岸田文雄","d":"広島1区","p":["広島"],"b":"","sk":"小選挙区","tc":6,"to":0,"age":52,"cab":1,"cabl":["特命担当大臣（沖縄及び北方対策）（2007年）","特命担当大臣（科学技術政策）（2007年）","特命担当大臣（規制改革）（2007年）","特命担当大臣（国民生活）（2007年）","特命担当大臣（再チャレンジ）（2007年）"],"x":false},{"n":"高村正彦","h":"衆","g":"番町研","k":"art","w":"","wiki":"高村正彦","d":"山口1区","p":["山口"],"b":"","sk":"小選挙区","tc":10,"to":0,"age":67,"cab":4,"cabl":["経済企画庁長官（1994年）","外務大臣（1998年）","法務大臣（2000年）","防衛大臣（2007年）"],"x":false},{"n":"河村建夫","h":"衆","g":"志帥会","k":"doc","w":"","wiki":"河村建夫","d":"山口3区","p":["山口"],"b":"","sk":"小選挙区","tc":7,"to":0,"age":66,"cab":2,"cabl":["文部科学大臣（2003年）","内閣官房長官（2008年）"],"x":false},{"n":"安倍晋三","h":"衆","g":"清和会","k":"art","w":"首相退任後の2008年3月に相談役として復帰","wiki":"安倍晋三","d":"山口4区","p":["山口"],"b":"","sk":"小選挙区","tc":6,"to":0,"age":54,"cab":2,"cabl":["内閣官房長官（2005年）","内閣総理大臣（2006年）"],"x":false},{"n":"後藤田正純","h":"衆","g":"無派閥","k":"art","w":"2007年に津島派を退会","wiki":"後藤田正純","d":"徳島3区","p":["徳島"],"b":"","sk":"小選挙区","tc":4,"to":0,"age":40,"cab":0,"cabl":[],"x":false},{"n":"大野功統","h":"衆","g":"近未来","k":"art","w":"","wiki":"大野功統","d":"香川3区","p":["香川"],"b":"","sk":"小選挙区","tc":8,"to":0,"age":73,"cab":1,"cabl":["防衛庁長官（2004年）"],"x":false},{"n":"塩崎恭久","h":"衆","g":"宏池会","k":"art","w":"","wiki":"塩崎恭久","d":"愛媛1区","p":["愛媛"],"b":"","sk":"小選挙区","tc":5,"to":0,"age":58,"cab":1,"cabl":["内閣官房長官（2006年）"],"x":false},{"n":"村上誠一郎","h":"衆","g":"番町研","k":"doc","w":"","wiki":"村上誠一郎","d":"愛媛2区","p":["愛媛"],"b":"","sk":"小選挙区","tc":8,"to":0,"age":57,"cab":1,"cabl":["特命担当大臣（規制改革）（2004年）","特命担当大臣（産業再生機構）（2004年）"],"x":false},{"n":"山本公一","h":"衆","g":"宏池会","k":"art","w":"","wiki":"山本公一","d":"愛媛4区","p":["愛媛"],"b":"","sk":"小選挙区","tc":6,"to":0,"age":61,"cab":0,"cabl":[],"x":false},{"n":"福井照","h":"衆","g":"宏池会","k":"art","w":"","wiki":"福井照","d":"高知1区","p":["高知"],"b":"","sk":"小選挙区","tc":4,"to":0,"age":55,"cab":0,"cabl":[],"x":false},{"n":"中谷元","h":"衆","g":"宏池会","k":"art","w":"","wiki":"中谷元","d":"高知2区","p":["高知"],"b":"","sk":"小選挙区","tc":7,"to":0,"age":51,"cab":1,"cabl":["防衛庁長官（2001年）"],"x":false},{"n":"山本有二","h":"衆","g":"番町研","k":"doc","w":"","wiki":"山本有二","d":"高知3区","p":["高知"],"b":"","sk":"小選挙区","tc":7,"to":0,"age":57,"cab":1,"cabl":["内閣府特命担当大臣（金融）（2006年）"],"x":false},{"n":"鳩山邦夫","h":"衆","g":"平成研","k":"doc","w":"","wiki":"鳩山邦夫","d":"福岡6区","p":["福岡"],"b":"","sk":"小選挙区","tc":11,"to":0,"age":60,"cab":4,"cabl":["文部大臣（1991年）","労働大臣（1994年）","法務大臣（2007年）","総務大臣（2008年）","内閣府特命担当大臣<br />（地方分権改革）（2008年）"],"x":false},{"n":"古賀誠","h":"衆","g":"宏池会","k":"art","w":"","wiki":"古賀誠","d":"福岡7区","p":["福岡"],"b":"","sk":"小選挙区","tc":10,"to":0,"age":69,"cab":1,"cabl":["運輸大臣（1996年）"],"x":false},{"n":"麻生太郎","h":"衆","g":"為公会","k":"doc","w":"","wiki":"麻生太郎","d":"福岡8区","p":["福岡"],"b":"","sk":"小選挙区","tc":10,"to":0,"age":68,"cab":5,"cabl":["経済企画庁長官（1996年）","経済財政政策担当大臣（2001年）","総務大臣（2003年）","外務大臣（2005年）","内閣総理大臣（2008年）"],"x":false},{"n":"武田良太","h":"衆","g":"近未来","k":"doc","w":"","wiki":"武田良太","d":"福岡11区","p":["福岡"],"b":"","sk":"小選挙区","tc":3,"to":0,"age":41,"cab":0,"cabl":[],"x":false},{"n":"保利耕輔","h":"衆","g":"無派閥","k":"art","w":"","wiki":"保利耕輔","d":"佐賀3区","p":["佐賀"],"b":"","sk":"小選挙区","tc":11,"to":0,"age":74,"cab":2,"cabl":["文部大臣（1990年）","自治大臣（1999年）","国家公安委員会委員長（1999年）"],"x":false},{"n":"坂本哲志","h":"衆","g":"近未来","k":"doc","w":"","wiki":"坂本哲志","d":"熊本3区","p":["熊本"],"b":"","sk":"小選挙区","tc":2,"to":0,"age":58,"cab":0,"cabl":[],"x":false},{"n":"園田博之","h":"衆","g":"無派閥","k":"none","w":"","wiki":"園田博之","d":"熊本4区","p":["熊本"],"b":"","sk":"小選挙区","tc":8,"to":0,"age":67,"cab":0,"cabl":[],"x":false},{"n":"金子恭之","h":"衆","g":"近未来","k":"doc","w":"","wiki":"金子恭之","d":"熊本5区","p":["熊本"],"b":"","sk":"小選挙区","tc":4,"to":0,"age":48,"cab":0,"cabl":[],"x":false},{"n":"江藤拓","h":"衆","g":"志帥会","k":"doc","w":"","wiki":"江藤拓","d":"宮崎2区","p":["宮崎"],"b":"","sk":"小選挙区","tc":3,"to":0,"age":49,"cab":0,"cabl":[],"x":false},{"n":"古川禎久","h":"衆","g":"近未来","k":"doc","w":"","wiki":"古川禎久","d":"宮崎3区","p":["宮崎"],"b":"","sk":"小選挙区","tc":3,"to":0,"age":44,"cab":0,"cabl":[],"x":false},{"n":"徳田毅","h":"衆","g":"宏池会","k":"doc","w":"","wiki":"徳田毅","d":"鹿児島2区","p":["鹿児島"],"b":"","sk":"小選挙区","tc":2,"to":0,"age":38,"cab":0,"cabl":[],"x":false},{"n":"小里泰弘","h":"衆","g":"宏池会","k":"doc","w":"","wiki":"小里泰弘","d":"鹿児島4区","p":["鹿児島"],"b":"","sk":"小選挙区","tc":2,"to":0,"age":50,"cab":0,"cabl":[],"x":false},{"n":"森山裕","h":"衆","g":"近未来","k":"doc","w":"","wiki":"森山裕","d":"鹿児島5区","p":["鹿児島"],"b":"","sk":"小選挙区","tc":3,"to":0,"age":64,"cab":0,"cabl":[],"x":false},{"n":"武部勤","h":"衆","g":"近未来","k":"art","w":"","wiki":"武部勤","d":"北海道12区（比例北海道で復活）","p":["北海道"],"b":"","sk":"比例復活","bb":"北海道","tc":8,"to":0,"age":68,"cab":1,"cabl":["農林水産大臣（2001年）"],"x":false},{"n":"吉野正芳","h":"衆","g":"清和会","k":"doc","w":"","wiki":"吉野正芳","d":"[[福島県第3区（比例東北で復活）","p":[null],"b":"","sk":"比例復活","bb":"東北","tc":4,"to":0,"age":61,"cab":0,"cabl":[],"x":false},{"n":"佐田玄一郎","h":"衆","g":"平成研","k":"doc","w":"","wiki":"佐田玄一郎","d":"比例北関東","p":[],"b":"北関東","sk":"比例単独","tc":7,"to":0,"age":56,"cab":1,"cabl":["内閣府特命担当大臣（規制改革担当）（2006年）"],"x":false},{"n":"甘利明","h":"衆","g":"近未来","k":"doc","w":"","wiki":"甘利明","d":"神奈川13区（比例南関東で復活）","p":["神奈川"],"b":"","sk":"比例復活","bb":"南関東","tc":9,"to":0,"age":60,"cab":3,"cabl":["労働大臣（1998年）","経済産業大臣（2006年）","特命担当大臣（規制改革）（2008年）"],"x":false},{"n":"鴨下一郎","h":"衆","g":"平成研","k":"doc","w":"","wiki":"鴨下一郎","d":"東京13区（比例東京で復活）","p":["東京"],"b":"","sk":"比例復活","bb":"東京","tc":6,"to":0,"age":60,"cab":1,"cabl":["環境大臣（2007年）"],"x":false},{"n":"長島忠美","h":"衆","g":"志帥会","k":"est","w":"志帥会の所属議員一覧に名前がある。入会時期は記事で確かめられず推定","wiki":"長島忠美","d":"新潟5区（比例北陸信越で復活）","p":["新潟"],"b":"","sk":"比例復活","bb":"北陸信越","tc":2,"to":0,"age":58,"cab":0,"cabl":[],"x":false},{"n":"田村憲久","h":"衆","g":"平成研","k":"art","w":"","wiki":"田村憲久","d":"三重県第4区（比例東海で復活）","p":["三重"],"b":"","sk":"比例復活","bb":"東海","tc":5,"to":0,"age":44,"cab":0,"cabl":[],"x":false},{"n":"近藤三津枝","h":"衆","g":"無派閥","k":"none","w":"","wiki":"近藤三津枝","d":"比例近畿","p":[],"b":"近畿","sk":"比例単独","tc":2,"to":0,"age":56,"cab":0,"cabl":[],"x":false},{"n":"阿部俊子","h":"衆","g":"無派閥","k":"none","w":"","wiki":"阿部俊子","d":"岡山県第3区（比例中国で復活）","p":["岡山"],"b":"","sk":"比例復活","bb":"中国","tc":2,"to":0,"age":50,"cab":0,"cabl":[],"x":false},{"n":"平井卓也","h":"衆","g":"宏池会","k":"art","w":"","wiki":"平井卓也","d":"香川1区（比例四国で復活）","p":["香川"],"b":"","sk":"比例復活","bb":"四国","tc":4,"to":0,"age":51,"cab":0,"cabl":[],"x":false},{"n":"野田毅","h":"衆","g":"近未来","k":"est","w":"のちの石原派（近未来政治研究会）に所属。2009年時点の所属は記事で確かめられず、系譜から推定","wiki":"野田毅","d":"熊本2区（比例九州で復活）","p":["熊本"],"b":"","sk":"比例復活","bb":"九州","tc":13,"to":0,"age":67,"cab":3,"cabl":["建設大臣（1989年）","経済企画庁長官（1991年）","自治大臣（1999年）","国家公安委員会委員長（1999年）"],"x":false},{"n":"村田吉隆","h":"衆","g":"宏池会","k":"art","w":"","wiki":"村田吉隆","d":"比例中国","p":[],"b":"中国","sk":"比例単独","tc":7,"to":0,"age":65,"cab":1,"cabl":["国家公安委員会委員長（2004年）","内閣府特命担当大臣（防災）（2004年）"],"x":false},{"n":"山口俊一","h":"衆","g":"為公会","k":"doc","w":"","wiki":"山口俊一","d":"徳島2区（比例四国で復活）","p":["徳島"],"b":"","sk":"比例復活","bb":"四国","tc":7,"to":0,"age":59,"cab":0,"cabl":[],"x":false},{"n":"秋葉賢也","h":"衆","g":"無派閥","k":"art","w":"派閥に入るのは2017年の額賀派入会から","wiki":"秋葉賢也","d":"比例東北","p":[],"b":"東北","sk":"比例単独","tc":2,"to":0,"age":47,"cab":0,"cabl":[],"x":false},{"n":"額賀福志郎","h":"衆","g":"平成研","k":"art","w":"","wiki":"額賀福志郎","d":"茨城県第2区（比例北関東で復活）","p":["茨城"],"b":"","sk":"比例復活","bb":"北関東","tc":9,"to":0,"age":65,"cab":4,"cabl":["防衛庁長官（1998年）","経済企画庁長官（2000年）","経済財政政策担当大臣（2001年）","財務大臣（2007年）"],"x":false},{"n":"林幹雄","h":"衆","g":"近未来","k":"doc","w":"","wiki":"林幹雄","d":"千葉10区（比例南関東で復活）","p":["千葉"],"b":"","sk":"比例復活","bb":"南関東","tc":6,"to":0,"age":62,"cab":1,"cabl":["国家公安委員会委員長（2008年）","内閣府特命担当大臣（沖縄及び北方対策）（2008年）","内閣府特命担当大臣（防災）（2008年）"],"x":false},{"n":"平将明","h":"衆","g":"近未来","k":"doc","w":"","wiki":"平将明","d":"東京都第4区（比例東京で復活）","p":["東京"],"b":"","sk":"比例復活","bb":"東京","tc":2,"to":0,"age":42,"cab":0,"cabl":[],"x":false},{"n":"北村茂男","h":"衆","g":"清和会","k":"doc","w":"","wiki":"北村茂男","d":"石川3区（比例北陸信越で復活）","p":["石川"],"b":"","sk":"比例復活","bb":"北陸信越","tc":2,"to":0,"age":63,"cab":0,"cabl":[],"x":false},{"n":"塩谷立","h":"衆","g":"清和会","k":"doc","w":"","wiki":"塩谷立","d":"静岡8区（比例東海で復活）","p":["静岡"],"b":"","sk":"比例復活","bb":"東海","tc":6,"to":0,"age":59,"cab":1,"cabl":["文部科学大臣（2008年）"],"x":false},{"n":"山本幸三","h":"衆","g":"宏池会","k":"art","w":"","wiki":"山本幸三","d":"比例九州","p":[],"b":"九州","sk":"比例単独","tc":5,"to":0,"age":61,"cab":0,"cabl":[],"x":false},{"n":"町村信孝","h":"衆","g":"清和会","k":"art","w":"","wiki":"町村信孝","d":"北海道5区（比例北海道で復活）","p":["北海道"],"b":"","sk":"比例復活","bb":"北海道","tc":9,"to":0,"age":64,"cab":5,"cabl":["文部大臣（1997年）","科学技術庁長官（2000年）","文部科学大臣（2001年）","外務大臣（2004年）","内閣官房長官（2007年）"],"x":false},{"n":"柳本卓治","h":"衆","g":"志帥会","k":"art","w":"","wiki":"柳本卓治","d":"比例近畿","p":[],"b":"近畿","sk":"比例単独","tc":6,"to":0,"age":64,"cab":0,"cabl":[],"x":false},{"n":"馳浩","h":"衆","g":"清和会","k":"doc","w":"","wiki":"馳浩","d":"石川1区（比例北陸信越で復活）","p":["石川"],"b":"","sk":"比例復活","bb":"北陸信越","tc":4,"to":0,"age":48,"cab":0,"cabl":[],"x":false},{"n":"河井克行","h":"衆","g":"平成研","k":"doc","w":"","wiki":"河井克行","d":"比例中国","p":[],"b":"中国","sk":"比例単独","tc":4,"to":0,"age":46,"cab":0,"cabl":[],"x":false},{"n":"谷川弥一","h":"衆","g":"清和会","k":"art","w":"","wiki":"谷川弥一","d":"長崎3区（比例九州で復活）","p":["長崎"],"b":"","sk":"比例復活","bb":"九州","tc":3,"to":0,"age":68,"cab":0,"cabl":[],"x":false},{"n":"遠藤利明","h":"衆","g":"宏池会","k":"art","w":"","wiki":"遠藤利明","d":"山形1区（比例東北で復活）","p":["山形"],"b":"","sk":"比例復活","bb":"東北","tc":5,"to":0,"age":59,"cab":0,"cabl":[],"x":false},{"n":"永岡桂子","h":"衆","g":"為公会","k":"doc","w":"","wiki":"永岡桂子","d":"茨城7区（比例北関東で復活）","p":["茨城"],"b":"","sk":"比例復活","bb":"北関東","tc":2,"to":0,"age":55,"cab":0,"cabl":[],"x":false},{"n":"松本純","h":"衆","g":"為公会","k":"doc","w":"","wiki":"松本純","d":"神奈川県第1区（比例南関東で復活）","p":["神奈川"],"b":"","sk":"比例復活","bb":"南関東","tc":4,"to":0,"age":59,"cab":0,"cabl":[],"x":false},{"n":"与謝野馨","h":"衆","g":"無派閥","k":"doc","w":"","wiki":"与謝野馨","d":"東京1区（比例東京で復活）","p":["東京"],"b":"","sk":"比例復活","bb":"東京","tc":10,"to":0,"age":71,"cab":6,"cabl":["文部大臣（1994年）","通商産業大臣（1998年）","内閣府特命担当大臣（経済財政政策）（2005年）","内閣府特命担当大臣（金融）（2005年）","内閣官房長官（2007年）","内閣府特命担当大臣（経済財政政策）（2008年）","内閣府特命担当大臣（規制改革）（2008年）","財務大臣（2009年）","内閣府特命担当大臣（金融）（2009年）"],"x":false},{"n":"野田聖子","h":"衆","g":"無派閥","k":"doc","w":"","wiki":"野田聖子","d":"岐阜県第1区（比例東海で復活）","p":["岐阜"],"b":"","sk":"比例復活","bb":"東海","tc":6,"to":0,"age":48,"cab":3,"cabl":["郵政大臣（1998年）","内閣府特命担当大臣（食品安全）（2008年）","内閣府特命担当大臣（科学技術政策）（2008年）","内閣府特命担当大臣（消費者）（2009年）"],"x":false},{"n":"中川秀直","h":"衆","g":"清和会","k":"art","w":"10月に清和会を退会","wiki":"中川秀直","d":"広島4区（比例中国で復活）","p":["広島"],"b":"","sk":"比例復活","bb":"中国","tc":10,"to":0,"age":65,"cab":2,"cabl":["科学技術庁長官（1996年）","内閣官房長官（2000年）","沖縄開発庁長官（2000年）"],"x":false},{"n":"長勢甚遠","h":"衆","g":"清和会","k":"art","w":"","wiki":"長勢甚遠","d":"富山1区（比例北陸信越で復活）","p":["富山"],"b":"","sk":"比例復活","bb":"北陸信越","tc":7,"to":0,"age":65,"cab":1,"cabl":["法務大臣（2006年）"],"x":false},{"n":"高市早苗","h":"衆","g":"清和会","k":"doc","w":"","wiki":"高市早苗","d":"奈良県第2区（比例近畿で復活）","p":["奈良"],"b":"","sk":"比例復活","bb":"近畿","tc":5,"to":0,"age":48,"cab":1,"cabl":["特命担当大臣（科学技術政策）（2006年）","特命担当大臣（沖縄及び北方対策）（2006年）","特命担当大臣（食品安全）（2006年）","特命担当大臣（少子化・男女共同参画）（2006年）","特命担当大臣（イノベーション）（2006年）"],"x":false},{"n":"衛藤征士郎","h":"衆","g":"清和会","k":"art","w":"","wiki":"衛藤征士郎","d":"大分県第2区（比例九州で復活）","p":["大分"],"b":"","sk":"比例復活","bb":"九州","tc":9,"to":0,"age":68,"cab":1,"cabl":["防衛庁長官（1995年）"],"x":false},{"n":"金田勝年","h":"衆","g":"平成研","k":"art","w":"参院議員時代からの所属。2009年に衆院へ転じて初当選","wiki":"金田勝年","d":"秋田2区（比例東北で復活）","p":["秋田"],"b":"","sk":"比例復活","bb":"東北","tc":1,"to":0,"age":59,"cab":0,"cabl":[],"x":true},{"n":"新藤義孝","h":"衆","g":"平成研","k":"art","w":"","wiki":"新藤義孝","d":"埼玉県第2区（比例北関東で復活）","p":["埼玉"],"b":"","sk":"比例復活","bb":"北関東","tc":4,"to":0,"age":51,"cab":0,"cabl":[],"x":false},{"n":"小池百合子","h":"衆","g":"清和会","k":"doc","w":"10月に清和会を退会","wiki":"小池百合子","d":"東京10区（比例東京で復活）","p":["東京"],"b":"","sk":"比例復活","bb":"東京","tc":6,"to":0,"age":57,"cab":3,"cabl":["環境大臣（2003年）","内閣府特命担当大臣（沖縄及び北方対策）（2004年）","防衛大臣（2007年）"],"x":false},{"n":"古屋圭司","h":"衆","g":"志帥会","k":"doc","w":"","wiki":"古屋圭司","d":"岐阜県第5区（比例東海で復活）","p":["岐阜"],"b":"","sk":"比例復活","bb":"東海","tc":7,"to":0,"age":56,"cab":0,"cabl":[],"x":false},{"n":"齋藤健","h":"衆","g":"無派閥","k":"doc","w":"","wiki":"齋藤健","d":"千葉7区（比例南関東で復活）","p":["千葉"],"b":"","sk":"比例復活","bb":"南関東","tc":1,"to":0,"age":50,"cab":0,"cabl":[],"x":true},{"n":"北村誠吾","h":"衆","g":"宏池会","k":"doc","w":"","wiki":"北村誠吾","d":"長崎4区（比例九州で復活）","p":["長崎"],"b":"","sk":"比例復活","bb":"九州","tc":4,"to":0,"age":62,"cab":0,"cabl":[],"x":false},{"n":"竹本直一","h":"衆","g":"宏池会","k":"art","w":"","wiki":"竹本直一","d":"大阪府第15区（比例近畿で復活）","p":["大阪"],"b":"","sk":"比例復活","bb":"近畿","tc":5,"to":0,"age":68,"cab":0,"cabl":[],"x":false},{"n":"田中和徳","h":"衆","g":"近未来","k":"doc","w":"","wiki":"田中和徳","d":"神奈川県第10区（比例南関東で復活）","p":["神奈川"],"b":"","sk":"比例復活","bb":"南関東","tc":5,"to":0,"age":60,"cab":0,"cabl":[],"x":false},{"n":"大村秀章","h":"衆","g":"平成研","k":"doc","w":"","wiki":"大村秀章","d":"比例東海","p":[],"b":"東海","sk":"比例単独","tc":5,"to":0,"age":49,"cab":0,"cabl":[],"x":false},{"n":"柴山昌彦","h":"衆","g":"清和会","k":"doc","w":"","wiki":"柴山昌彦","d":"埼玉8区（比例北関東で復活）","p":["埼玉"],"b":"","sk":"比例復活","bb":"北関東","tc":3,"to":0,"age":43,"cab":0,"cabl":[],"x":false},{"n":"菅原一秀","h":"衆","g":"無派閥","k":"doc","w":"","wiki":"菅原一秀","d":"東京都第9区（比例東京で復活）","p":["東京"],"b":"","sk":"比例復活","bb":"東京","tc":3,"to":0,"age":47,"cab":0,"cabl":[],"x":false},{"n":"松野博一","h":"衆","g":"清和会","k":"doc","w":"","wiki":"松野博一","d":"千葉3区（比例南関東で復活）","p":["千葉"],"b":"","sk":"比例復活","bb":"南関東","tc":4,"to":0,"age":46,"cab":0,"cabl":[],"x":false},{"n":"石田真敏","h":"衆","g":"近未来","k":"doc","w":"","wiki":"石田真敏","d":"和歌山県第2区（比例近畿で復活）","p":["和歌山"],"b":"","sk":"比例復活","bb":"近畿","tc":3,"to":0,"age":57,"cab":0,"cabl":[],"x":false},{"n":"岩屋毅","h":"衆","g":"為公会","k":"doc","w":"","wiki":"岩屋毅","d":"大分県第3区（比例九州で復活）","p":["大分"],"b":"","sk":"比例復活","bb":"九州","tc":4,"to":0,"age":52,"cab":0,"cabl":[],"x":false},{"n":"佐藤勉","h":"衆","g":"宏池会","k":"doc","w":"","wiki":"佐藤勉","d":"栃木4区（比例北関東で復活）","p":["栃木"],"b":"","sk":"比例復活","bb":"北関東","tc":5,"to":0,"age":57,"cab":2,"cabl":["国家公安委員会委員長（2008年）","内閣府特命担当大臣（防災）（2008年）","内閣府特命担当大臣（沖縄及び北方対策）（2008年）","総務大臣（2009年）","内閣府特命担当大臣（地方分権改革）（2009年）"],"x":false},{"n":"川崎二郎","h":"衆","g":"宏池会","k":"art","w":"","wiki":"川崎二郎","d":"三重1区（比例東海で復活）","p":["三重"],"b":"","sk":"比例復活","bb":"東海","tc":9,"to":0,"age":61,"cab":2,"cabl":["運輸大臣（1998年）","北海道開発庁長官（1998年）","厚生労働大臣（2005年）"],"x":false},{"n":"今村雅弘","h":"衆","g":"無派閥","k":"doc","w":"","wiki":"今村雅弘","d":"佐賀2区（比例九州で復活）","p":["佐賀"],"b":"","sk":"比例復活","bb":"九州","tc":5,"to":0,"age":62,"cab":0,"cabl":[],"x":false},{"n":"松浪健太","h":"衆","g":"志帥会","k":"doc","w":"","wiki":"松浪健太","d":"大阪10区（比例近畿で復活）","p":["大阪"],"b":"","sk":"比例復活","bb":"近畿","tc":3,"to":0,"age":38,"cab":0,"cabl":[],"x":false},{"n":"伊吹文明","h":"衆","g":"志帥会","k":"art","w":"","wiki":"伊吹文明","d":"京都府第1区（比例近畿で復活）","p":["京都"],"b":"","sk":"比例復活","bb":"近畿","tc":9,"to":0,"age":71,"cab":5,"cabl":["労働大臣（1997年）","国家公安委員会委員長（2000年）","防災担当大臣（2001年）","文部科学大臣（2006年）","財務大臣（2008年）"],"x":false},{"n":"谷公一","h":"衆","g":"志帥会","k":"doc","w":"","wiki":"谷公一","d":"兵庫県第5区（比例近畿で復活）","p":["兵庫"],"b":"","sk":"比例復活","bb":"近畿","tc":3,"to":0,"age":57,"cab":0,"cabl":[],"x":false},{"n":"谷畑孝","h":"衆","g":"清和会","k":"doc","w":"","wiki":"谷畑孝","d":"大阪14区（比例近畿で復活）","p":["大阪"],"b":"","sk":"比例復活","bb":"近畿","tc":5,"to":0,"age":62,"cab":0,"cabl":[],"x":false}],"posts":[["内閣","選挙時の麻生内閣（2009年8月30日時点）",[["内閣総理大臣","麻生太郎","",true],["内閣官房長官","河村建夫","拉致問題担当",true],["総務大臣","佐藤勉","6月に鳩山邦夫氏の後任",true],["法務大臣","森英介","",true],["外務大臣","中曽根弘文","参院議員",false],["財務大臣","与謝野馨","金融担当を兼ねる",true],["文部科学大臣","塩谷立","",true],["厚生労働大臣","舛添要一","参院議員",false],["農林水産大臣","石破茂","",true],["経済産業大臣","二階俊博","",true],["国土交通大臣","金子一義","",true],["環境大臣","斉藤鉄夫","公明党",false],["防衛大臣","浜田靖一","",true],["国家公安委員長","林幹雄","7月に就任",true],["経済財政担当","林芳正","参院議員。7月に就任",false],["行政改革・規制改革担当","甘利明","",true],["消費者・科学技術担当","野田聖子","",true],["少子化対策担当","小渕優子","",true],["内閣官房副長官","松本純","政務担当",true],["内閣官房副長官","浅野勝人","参院議員。5月に就任",false],["首相補佐官","山口俊一","地方再生担当",true]]],["副大臣","選挙時の副大臣",[["内閣府副大臣","増原義剛","2009年の当選者にいない（落選・引退）",false],["内閣府副大臣","宮澤洋一","2009年の当選者にいない（落選・引退）",false],["内閣府副大臣","谷本龍哉","2009年の当選者にいない（落選・引退）",false],["総務副大臣","石崎岳","2009年の当選者にいない（落選・引退）",false],["総務副大臣","倉田雅年","2009年の当選者にいない（落選・引退）",false],["法務副大臣","佐藤剛男","2009年の当選者にいない（落選・引退）",false],["外務副大臣","伊藤信太郎","2009年の当選者にいない（落選・引退）",false],["外務副大臣","橋本聖子","参院議員",false],["財務副大臣","石田真敏","",true],["財務副大臣","竹下亘","",true],["文部科学副大臣","松野博一","",true],["文部科学副大臣","山内俊夫","参院議員",false],["厚生労働副大臣","大村秀章","",true],["厚生労働副大臣","渡辺孝男","公明党・参院議員",false],["農林水産副大臣","近藤基彦","2009年の当選者にいない（落選・引退）",false],["農林水産副大臣","石田祝稔","公明党。2009年は落選",false],["経済産業副大臣","高市早苗","",true],["経済産業副大臣","吉川貴盛","2009年の当選者にいない（落選・引退）",false],["国土交通副大臣","金子恭之","",true],["国土交通副大臣","加納時男","参院議員",false],["環境副大臣","吉野正芳","",true],["防衛副大臣","北村誠吾","",true]]],["政務官","選挙時の大臣政務官",[["内閣府政務官","宇野治","2009年の当選者にいない（落選・引退）",false],["内閣府政務官","並木正芳","2009年の当選者にいない（落選・引退）",false],["内閣府政務官","岡本芳郎","2009年の当選者にいない（落選・引退）",false],["総務政務官","坂本哲志","",true],["総務政務官","鈴木淳司","2009年の当選者にいない（落選・引退）",false],["総務政務官","中村博彦","参院議員",false],["法務政務官","早川忠孝","2009年の当選者にいない（落選・引退）",false],["外務政務官","柴山昌彦","",true],["外務政務官","西村康稔","",true],["外務政務官","御法川信英","2009年の当選者にいない（落選・引退）",false],["財務政務官","三ツ矢憲生","",true],["財務政務官","末松信介","参院議員",false],["文部科学政務官","萩生田光一","2009年の当選者にいない（落選・引退）",false],["文部科学政務官","浮島とも子","公明党・参院議員",false],["厚生労働政務官","金子善次郎","2009年の当選者にいない（落選・引退）",false],["農林水産政務官","江藤拓","",true],["農林水産政務官","野村哲郎","参院議員",false],["経済産業政務官","谷合正明","公明党・参院議員",false],["経済産業政務官","松村祥史","参院議員",false],["国土交通政務官","谷口和史","公明党。2009年は落選",false],["国土交通政務官","西銘恒三郎","2009年の当選者にいない（落選・引退）",false],["国土交通政務官","岡田直樹","参院議員",false],["環境政務官","古川禎久","",true],["防衛政務官","武田良太","",true],["防衛政務官","岸信夫","参院議員",false]]],["党執行部","選挙時の党執行部（麻生総裁）",[["幹事長","細田博之","選挙対策委員長を兼ねる。選挙後に引責辞任",true],["総務会長","笹川堯","2009年は落選",false],["政務調査会長","保利耕輔","",true],["国会対策委員長","大島理森","",true]]],["党執行部後","選挙後の党執行部（谷垣総裁）",[["総裁","谷垣禎一","9月28日の総裁選で選出",true],["幹事長","大島理森","9月29日就任",true],["総務会長","田野瀬良太郎","9月29日就任",true],["政務調査会長","石破茂","9月29日就任",true],["国会対策委員長","川崎二郎","9月29日就任",true],["幹事長代理","園田博之","10月就任",true]]]],"kin":{"大島理森":[{"rel":"叔父","o":"夏堀源三郎","t":"元衆議院議員","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"父","o":"大島勇太郎","t":"","cat":"血族","line":"直系","deg":1,"inr":false,"nat":false,"later":false,"desc":false}],"木村太郎":[{"rel":"祖父","o":"木村文男","t":"元衆議院議員","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"父","o":"木村守男","t":"元青森県知事・衆議院議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"弟","o":"木村次郎","t":"のち衆議院議員（2017年初当選）","cat":"血族","line":"傍系","deg":2,"inr":false,"nat":false,"later":true,"desc":false}],"小野寺五典":[{"rel":"義父","o":"小野寺信雄","t":"元気仙沼市長","cat":"姻族","line":"","deg":1,"inr":false,"nat":false,"desc":false}],"加藤紘一":[{"rel":"父","o":"加藤精三","t":"元衆議院議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false}],"梶山弘志":[{"rel":"父","o":"梶山静六","t":"元官房長官","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false}],"福田康夫":[{"rel":"父","o":"福田赳夫","t":"元内閣総理大臣","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"叔父","o":"福田宏一","t":"元参議院議員","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"祖父","o":"福田善治","t":"","cat":"血族","line":"直系","deg":2,"inr":false,"nat":false,"later":false,"desc":false},{"rel":"伯父","o":"福田平四郎","t":"","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":false,"later":false,"desc":false},{"rel":"義祖父","o":"櫻内幸雄","t":"元衆議院議員","cat":"姻族","line":"","deg":2,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"義伯父","o":"櫻内義雄","t":"元外務大臣・衆議院議長","cat":"姻族","line":"","deg":3,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"義兄","o":"越智通雄","t":"元経済企画庁長官","cat":"姻族","line":"","deg":2,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"甥","o":"越智隆雄","t":"衆議院議員（2009年は落選）","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":true,"later":false,"desc":false}],"小渕優子":[{"rel":"父","o":"小渕恵三","t":"元首相","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false},{"rel":"祖父","o":"小渕光平","t":"元衆院議員","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"desc":false},{"rel":"伯父","o":"小渕光平(2代目)","t":"元中之条町長","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":false,"desc":false}],"森英介":[{"rel":"父","o":"森美秀","t":"元環境庁長官","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false},{"rel":"祖父","o":"森矗昶","t":"元衆院議員","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"desc":false},{"rel":"伯父","o":"森曉","t":"元衆院議員","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":true,"desc":false},{"rel":"伯父","o":"森清","t":"元総理府総務長官","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":true,"desc":false},{"rel":"義伯父","o":"三木武夫","t":"元首相","cat":"姻族","line":"","deg":3,"inr":false,"nat":true,"desc":false},{"rel":"義伯父","o":"田中覚","t":"元三重県知事","cat":"姻族","line":"","deg":3,"inr":false,"nat":false,"desc":false},{"rel":"従姉","o":"高橋紀世子","t":"元参院議員","cat":"血族","line":"傍系","deg":4,"inr":false,"nat":true,"desc":false},{"rel":"従弟","o":"松崎哲久","t":"元衆院議員","cat":"血族","line":"傍系","deg":4,"inr":false,"nat":true,"desc":false},{"rel":"はとこ","o":"佐藤泰三","t":"元参院議員","cat":"血族","line":"傍系","deg":6,"inr":false,"nat":true,"desc":false},{"rel":"はとこ","o":"山口和彦","t":"元勝浦市長","cat":"血族","line":"傍系","deg":6,"inr":false,"nat":false,"desc":false}],"浜田靖一":[{"rel":"父","o":"浜田幸一","t":"元衆院議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false}],"小泉進次郎":[{"rel":"父","o":"小泉純一郎","t":"元首相","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false},{"rel":"祖父","o":"小泉純也","t":"元防衛庁長官","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"desc":false},{"rel":"曾祖父","o":"小泉又次郎","t":"元逓信相","cat":"血族","line":"直系","deg":3,"inr":false,"nat":true,"desc":false},{"rel":"母方の高祖父","o":"宮本央","t":"元衆院議員","cat":"血族","line":"直系","deg":4,"inr":false,"nat":true,"desc":false}],"河野太郎":[{"rel":"父","o":"河野洋平","t":"元衆院議長","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false},{"rel":"祖父","o":"河野一郎","t":"元副総理","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"desc":false},{"rel":"曾祖父","o":"河野治平","t":"元神奈川県会議長","cat":"血族","line":"直系","deg":3,"inr":false,"nat":false,"desc":false},{"rel":"大叔父","o":"河野謙三","t":"元参院議長","cat":"血族","line":"傍系","deg":4,"inr":false,"nat":true,"desc":false},{"rel":"曾祖父","o":"田川平三郎","t":"元衆院議員","cat":"血族","line":"直系","deg":3,"inr":false,"nat":true,"desc":false}],"石原伸晃":[{"rel":"父","o":"石原慎太郎","t":"東京都知事・元衆議院議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"次弟","o":"石原宏高","t":"元衆議院議員（2009年は落選）","cat":"血族","line":"傍系","deg":2,"inr":false,"nat":true,"later":false,"desc":false}],"橘慶一郎":[{"rel":"父","o":"橘康太郎","t":"元衆院議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false},{"rel":"祖父","o":"橘直治","t":"元衆院議員・参院議員","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"desc":false},{"rel":"曾祖父","o":"橘林太郎","t":"元富山県議","cat":"血族","line":"直系","deg":3,"inr":false,"nat":false,"desc":false},{"rel":"高祖父","o":"橘清治郎","t":"元貴族院議員","cat":"血族","line":"直系","deg":4,"inr":false,"nat":true,"desc":false}],"森喜朗":[{"rel":"祖父","o":"森喜平","t":"","cat":"血族","line":"直系","deg":2,"inr":false,"nat":false,"later":false,"desc":false},{"rel":"父","o":"森茂喜","t":"元根上町長","cat":"血族","line":"直系","deg":1,"inr":false,"nat":false,"later":false,"desc":false},{"rel":"姪の夫","o":"岡田直樹","t":"参議院議員","cat":"姻族","line":"","deg":3,"inr":false,"nat":true,"later":false,"desc":false}],"山本拓":[{"rel":"父","o":"山本治","t":"","cat":"血族","line":"直系","deg":1,"inr":false,"nat":false,"later":false,"desc":false}],"高木毅":[{"rel":"父","o":"高木孝一","t":"元敦賀市長","cat":"血族","line":"直系","deg":1,"inr":false,"nat":false,"later":false,"desc":false}],"棚橋泰文":[{"rel":"祖父","o":"松野幸泰","t":"元国土庁長官","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"desc":false},{"rel":"祖母","o":"松野友","t":"元穂積町長","cat":"血族","line":"直系","deg":2,"inr":false,"nat":false,"desc":false},{"rel":"伯父","o":"松野幸信","t":"元瑞穂市長","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":false,"desc":false}],"金子一義":[{"rel":"父","o":"金子一平","t":"元経済企画庁長官","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false}],"谷垣禎一":[{"rel":"父","o":"谷垣専一","t":"元文部大臣","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false}],"西野陽":[{"rel":"父","o":"西野米太郎","t":"元大阪府議会議長","cat":"血族","line":"直系","deg":1,"inr":false,"nat":false,"later":false,"desc":false},{"rel":"弟","o":"西野茂","t":"大阪府議会議員","cat":"血族","line":"傍系","deg":2,"inr":false,"nat":false,"later":false,"desc":false}],"西村康稔":[{"rel":"義父","o":"吹田愰","t":"元自治相","cat":"姻族","line":"","deg":1,"inr":false,"nat":true,"desc":false}],"二階俊博":[{"rel":"父","o":"二階俊太郎","t":"元和歌山県議会議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":false,"later":false,"desc":false}],"石破茂":[{"rel":"父","o":"石破二朗","t":"元自治相・鳥取県知事","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false}],"赤沢亮正":[{"rel":"祖父","o":"赤沢正道","t":"元自治相","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"desc":false}],"細田博之":[{"rel":"父","o":"細田吉蔵","t":"元運輸大臣","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"祖父","o":"升田憲元","t":"元衆議院議員","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"later":false,"desc":false}],"竹下亘":[{"rel":"異母兄","o":"竹下登","t":"元内閣総理大臣","cat":"血族","line":"傍系","deg":2,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"父","o":"竹下勇造","t":"元島根県議会議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":false,"later":false,"desc":false}],"逢沢一郎":[{"rel":"父","o":"逢沢英雄","t":"元衆院議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false},{"rel":"祖父","o":"逢沢寛","t":"元衆院議員","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"desc":false}],"加藤勝信":[{"rel":"岳父","o":"加藤六月","t":"元農相","cat":"姻族","line":"","deg":1,"inr":false,"nat":true,"desc":false},{"rel":"義伯父","o":"加藤武徳","t":"元自治相・岡山県知事","cat":"姻族","line":"","deg":3,"inr":false,"nat":true,"desc":false},{"rel":"義理の従兄弟","o":"加藤紀文","t":"元参院議員","cat":"姻族","line":"","deg":4,"inr":false,"nat":true,"desc":false},{"rel":"祖父","o":"室崎勝造","t":"元島根県議会議長","cat":"血族","line":"直系","deg":2,"inr":false,"nat":false,"desc":false}],"岸田文雄":[{"rel":"父","o":"岸田文武","t":"元衆院議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false},{"rel":"祖父","o":"岸田正記","t":"元衆院議員","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"desc":false},{"rel":"従兄","o":"宮沢洋一","t":"","cat":"血族","line":"傍系","deg":4,"inr":false,"nat":true,"desc":false}],"高村正彦":[{"rel":"父","o":"高村坂彦","t":"元衆議院議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false}],"河村建夫":[{"rel":"父","o":"河村定一","t":"元山口県議会議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":false,"later":false,"desc":false},{"rel":"弟","o":"田中文夫","t":"萩市長","cat":"血族","line":"傍系","deg":2,"inr":false,"nat":false,"later":false,"desc":false}],"安倍晋三":[{"rel":"祖父","o":"安倍寛","t":"元衆議院議員","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"祖父","o":"岸信介","t":"元内閣総理大臣","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"大叔父","o":"佐藤栄作","t":"元内閣総理大臣","cat":"血族","line":"傍系","deg":4,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"父","o":"安倍晋太郎","t":"元外務大臣","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"弟","o":"岸信夫","t":"参議院議員","cat":"血族","line":"傍系","deg":2,"inr":false,"nat":true,"later":false,"desc":false}],"後藤田正純":[{"rel":"大叔父","o":"後藤田正晴","t":"元副総理","cat":"血族","line":"傍系","deg":4,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"従伯父","o":"井上普方","t":"元衆議院議員","cat":"血族","line":"傍系","deg":5,"inr":false,"nat":true,"later":false,"desc":false}],"大野功統":[{"rel":"岳父","o":"加藤常太郎","t":"元衆議院議員","cat":"姻族","line":"","deg":1,"inr":false,"nat":true,"later":false,"desc":false}],"塩崎恭久":[{"rel":"父","o":"塩崎潤","t":"元総務庁長官","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false}],"村上誠一郎":[{"rel":"父","o":"村上信二郎","t":"元衆院議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false},{"rel":"曾祖父","o":"村上紋四郎","t":"元衆院議員・今治市長","cat":"血族","line":"直系","deg":3,"inr":false,"nat":true,"desc":false},{"rel":"伯父","o":"村上孝太郎","t":"元参院議員","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":true,"desc":false},{"rel":"義弟","o":"岡田克也","t":"元副総理","cat":"姻族","line":"","deg":2,"inr":false,"nat":true,"desc":false},{"rel":"長男","o":"村上信太郎","t":"愛媛県議","cat":"血族","line":"直系","deg":1,"inr":false,"nat":false,"desc":true},{"rel":"遠縁","o":"森田一","t":"元運輸相","cat":"その他","line":"","deg":null,"inr":false,"nat":true,"desc":false}],"山本公一":[{"rel":"父","o":"山本友一","t":"元衆議院議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false}],"中谷元":[{"rel":"父","o":"中谷健","t":"（記事で肩書不明）","cat":"血族","line":"直系","deg":1,"inr":false,"nat":false,"desc":false},{"rel":"祖父","o":"中谷貞頼","t":"元衆院議員","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"desc":false}],"鳩山邦夫":[{"rel":"曾祖父","o":"鳩山和夫","t":"元衆議院議長","cat":"血族","line":"直系","deg":3,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"祖父","o":"鳩山一郎","t":"元内閣総理大臣","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"父","o":"鳩山威一郎","t":"元外務大臣","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"兄","o":"鳩山由紀夫","t":"民主党代表。選挙後に首相","cat":"血族","line":"傍系","deg":2,"inr":false,"nat":true,"later":false,"desc":false}],"麻生太郎":[{"rel":"祖父","o":"吉田茂","t":"元首相","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"desc":false},{"rel":"父","o":"麻生太賀吉","t":"元衆院議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false},{"rel":"曾祖父","o":"牧野伸顕","t":"元内大臣","cat":"血族","line":"直系","deg":3,"inr":false,"nat":true,"desc":false},{"rel":"曾祖父","o":"麻生太吉","t":"元貴族院議員","cat":"血族","line":"直系","deg":3,"inr":false,"nat":true,"desc":false},{"rel":"高祖父","o":"大久保利通","t":"初代内務卿","cat":"血族","line":"直系","deg":4,"inr":false,"nat":true,"desc":false},{"rel":"義父","o":"鈴木善幸","t":"元首相","cat":"姻族","line":"","deg":1,"inr":false,"nat":true,"desc":false},{"rel":"義弟","o":"鈴木俊一","t":"","cat":"姻族","line":"","deg":2,"inr":false,"nat":true,"desc":false},{"rel":"再従姪","o":"堀内詔子","t":"","cat":"血族","line":"傍系","deg":7,"inr":false,"nat":true,"desc":false},{"rel":"曾祖父","o":"加納久宜","t":"元貴族院議員","cat":"血族","line":"直系","deg":3,"inr":false,"nat":true,"desc":false},{"rel":"曾祖父","o":"竹内綱","t":"元衆院議員","cat":"血族","line":"直系","deg":3,"inr":false,"nat":true,"desc":false},{"rel":"大伯父","o":"加納久朗","t":"元千葉県知事","cat":"血族","line":"傍系","deg":4,"inr":false,"nat":false,"desc":false},{"rel":"大伯父","o":"竹内明太郎","t":"元衆院議員","cat":"血族","line":"傍系","deg":4,"inr":false,"nat":true,"desc":false}],"武田良太":[{"rel":"伯父","o":"田中六助","t":"元幹事長","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":true,"desc":false}],"保利耕輔":[{"rel":"父","o":"保利茂","t":"元衆議院議長","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false}],"園田博之":[{"rel":"父","o":"園田直","t":"元外務大臣","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"継母","o":"園田天光光","t":"元衆議院議員","cat":"姻族","line":"","deg":1,"inr":false,"nat":true,"later":false,"desc":false}],"江藤拓":[{"rel":"父","o":"江藤隆美","t":"元総務庁長官","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false}],"徳田毅":[{"rel":"父","o":"徳田虎雄","t":"元衆議院議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false}],"小里泰弘":[{"rel":"父","o":"小里貞利","t":"元労相","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false}],"佐田玄一郎":[{"rel":"祖父","o":"佐田一郎","t":"元参議院議員","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"later":false,"desc":false}],"甘利明":[{"rel":"父","o":"甘利正","t":"元衆議院議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false}],"田村憲久":[{"rel":"祖父","o":"田村秢","t":"元衆院議員","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"desc":false},{"rel":"伯父","o":"田村元","t":"元衆院議長","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":true,"desc":false}],"平井卓也":[{"rel":"父","o":"平井卓志","t":"元労相","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false},{"rel":"祖父","o":"平井太郎","t":"元郵政相","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"desc":false}],"野田毅":[{"rel":"岳父","o":"野田武夫","t":"元自治大臣","cat":"姻族","line":"","deg":1,"inr":false,"nat":true,"later":false,"desc":false}],"村田吉隆":[{"rel":"岳父","o":"藤井勝志","t":"元労働大臣","cat":"姻族","line":"","deg":1,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"伯父","o":"岡崎平夫","t":"元岡山市長","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":false,"later":false,"desc":false}],"額賀福志郎":[{"rel":"父","o":"額賀万寿夫","t":"元村議・町議","cat":"血族","line":"直系","deg":1,"inr":false,"nat":false,"desc":false}],"林幹雄":[{"rel":"父","o":"林大幹","t":"元環境庁長官","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false}],"塩谷立":[{"rel":"父","o":"塩谷一夫","t":"元衆議院議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false}],"山本幸三":[{"rel":"岳父","o":"村山達雄","t":"元大蔵大臣","cat":"姻族","line":"","deg":1,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"叔父","o":"柳田桃太郎","t":"元参議院議員","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":true,"later":false,"desc":false}],"町村信孝":[{"rel":"父","o":"町村金五","t":"元自治大臣・北海道知事","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"伯父","o":"町村敬貴","t":"元衆議院議員","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"祖父","o":"桑田熊蔵","t":"元貴族院議員","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"義叔父","o":"河合良成","t":"元厚生大臣","cat":"姻族","line":"","deg":3,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"娘婿","o":"和田義明","t":"のち衆議院議員（2016年初当選）","cat":"姻族","line":"","deg":1,"inr":false,"nat":false,"later":true,"desc":true}],"柳本卓治":[{"rel":"甥","o":"柳本顕","t":"大阪市議会議員","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":false,"later":false,"desc":false}],"永岡桂子":[{"rel":"夫","o":"永岡洋治","t":"元衆院議員","cat":"配偶者","line":"","deg":0,"inr":false,"nat":true,"desc":false}],"松本純":[{"rel":"弟","o":"松本研","t":"横浜市会議員","cat":"血族","line":"傍系","deg":2,"inr":false,"nat":false,"later":false,"desc":false}],"野田聖子":[{"rel":"祖父","o":"野田卯一","t":"元建設相","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"desc":false},{"rel":"親戚","o":"島定治郎","t":"元貴族院議員","cat":"その他","line":"","deg":null,"inr":false,"nat":true,"desc":false},{"rel":"親戚","o":"実吉安純","t":"元貴族院議員","cat":"その他","line":"","deg":null,"inr":false,"nat":true,"desc":false}],"中川秀直":[{"rel":"岳父","o":"中川俊思","t":"元衆議院議員","cat":"姻族","line":"","deg":1,"inr":false,"nat":true,"later":false,"desc":false}],"長勢甚遠":[{"rel":"叔父","o":"鹿熊安正","t":"元参議院議員","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"祖父","o":"鹿熊久安","t":"元富山県議会議長","cat":"血族","line":"直系","deg":2,"inr":false,"nat":false,"later":false,"desc":false},{"rel":"父","o":"長勢甚正","t":"元魚津市議会議員","cat":"血族","line":"直系","deg":1,"inr":false,"nat":false,"later":false,"desc":false},{"rel":"従弟","o":"鹿熊正一","t":"富山県議会議員","cat":"血族","line":"傍系","deg":4,"inr":false,"nat":false,"later":false,"desc":false}],"高市早苗":[{"rel":"夫","o":"山本拓","t":"元衆院議員","cat":"配偶者","line":"","deg":0,"inr":true,"nat":true,"desc":false}],"新藤義孝":[{"rel":"祖父","o":"新藤勝衛","t":"元川口市議会議長","cat":"血族","line":"直系","deg":2,"inr":false,"nat":false,"desc":false},{"rel":"曾祖父","o":"（氏名不詳）","t":"元村議","cat":"血族","line":"直系","deg":3,"inr":false,"nat":false,"desc":false},{"rel":"弟","o":"永瀬秀樹","t":"埼玉県議","cat":"血族","line":"傍系","deg":2,"inr":false,"nat":false,"desc":false}],"古屋圭司":[{"rel":"養父","o":"古屋亨","t":"元自治相（母方の伯父）","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false},{"rel":"祖父","o":"古屋慶隆","t":"元衆院議員","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"desc":false},{"rel":"曾祖父","o":"古屋善造","t":"元衆院議員","cat":"血族","line":"直系","deg":3,"inr":false,"nat":true,"desc":false},{"rel":"曾祖父","o":"須田万右衛門","t":"元衆院議員","cat":"血族","line":"直系","deg":3,"inr":false,"nat":true,"desc":false},{"rel":"高祖父","o":"古屋善平治","t":"元岐阜県議","cat":"血族","line":"直系","deg":4,"inr":false,"nat":false,"desc":false}],"田中和徳":[{"rel":"長男","o":"田中徳一郎","t":"神奈川県議","cat":"血族","line":"直系","deg":1,"inr":false,"nat":false,"desc":true}],"岩屋毅":[{"rel":"父","o":"岩屋啓","t":"元大分県議","cat":"血族","line":"直系","deg":1,"inr":false,"nat":false,"desc":false}],"川崎二郎":[{"rel":"祖父","o":"川崎克","t":"元衆議院議員","cat":"血族","line":"直系","deg":2,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"父","o":"川崎秀二","t":"元厚生大臣","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"later":false,"desc":false}],"松浪健太":[{"rel":"叔父","o":"松浪健四郎","t":"元衆議院議員（2009年は落選）","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":true,"later":false,"desc":false},{"rel":"伯父","o":"松浪啓一","t":"元大阪府議会議員","cat":"血族","line":"傍系","deg":3,"inr":false,"nat":false,"later":false,"desc":false},{"rel":"従兄","o":"松浪武久","t":"大阪府議会議員","cat":"血族","line":"傍系","deg":4,"inr":false,"nat":false,"later":false,"desc":false}],"伊吹文明":[{"rel":"義祖父","o":"高橋龍太郎","t":"元通商産業大臣","cat":"姻族","line":"","deg":2,"inr":false,"nat":true,"later":false,"desc":false}],"谷公一":[{"rel":"父","o":"谷洋一","t":"元農相","cat":"血族","line":"直系","deg":1,"inr":false,"nat":true,"desc":false},{"rel":"大伯父","o":"谷襄","t":"元兵庫県議","cat":"血族","line":"傍系","deg":4,"inr":false,"nat":false,"desc":false}]},"kinstatus":{"伊東良孝":"checked","江渡聡徳":"checked","大島理森":"checked","木村太郎":"checked","小野寺五典":"checked","加藤紘一":"checked","梶山弘志":"checked","茂木敏充":"checked","福田康夫":"checked","小渕優子":"checked","森英介":"checked","浜田靖一":"checked","菅義偉":"checked","小泉進次郎":"checked","河野太郎":"checked","石原伸晃":"checked","下村博文":"checked","平沢勝栄":"checked","井上信治":"checked","宮腰光寛":"checked","橘慶一郎":"checked","森喜朗":"checked","稲田朋美":"checked","山本拓":"checked","高木毅":"checked","棚橋泰文":"checked","金子一義":"checked","三ツ矢憲生":"checked","谷垣禎一":"checked","西野陽":"checked","西村康稔":"checked","田野瀬良太郎":"checked","二階俊博":"checked","石破茂":"checked","赤沢亮正":"checked","細田博之":"checked","竹下亘":"checked","逢沢一郎":"checked","加藤勝信":"checked","岸田文雄":"checked","高村正彦":"checked","河村建夫":"checked","安倍晋三":"checked","後藤田正純":"checked","大野功統":"checked","塩崎恭久":"checked","村上誠一郎":"checked","山本公一":"checked","福井照":"checked","中谷元":"checked","山本有二":"checked","鳩山邦夫":"checked","古賀誠":"checked","麻生太郎":"checked","武田良太":"checked","保利耕輔":"checked","坂本哲志":"checked","園田博之":"checked","金子恭之":"checked","江藤拓":"checked","古川禎久":"checked","徳田毅":"checked","小里泰弘":"checked","森山裕":"checked","武部勤":"checked","吉野正芳":"checked","佐田玄一郎":"checked","甘利明":"checked","鴨下一郎":"checked","長島忠美":"checked","田村憲久":"checked","近藤三津枝":"checked","阿部俊子":"checked","平井卓也":"checked","野田毅":"checked","村田吉隆":"checked","山口俊一":"checked","秋葉賢也":"checked","額賀福志郎":"checked","林幹雄":"checked","平将明":"checked","北村茂男":"checked","塩谷立":"checked","山本幸三":"checked","町村信孝":"checked","柳本卓治":"checked","馳浩":"checked","河井克行":"checked","谷川弥一":"checked","遠藤利明":"checked","永岡桂子":"checked","松本純":"checked","与謝野馨":"checked","野田聖子":"checked","中川秀直":"checked","長勢甚遠":"checked","高市早苗":"checked","衛藤征士郎":"checked","金田勝年":"checked","新藤義孝":"checked","小池百合子":"checked","古屋圭司":"checked","齋藤健":"checked","北村誠吾":"checked","竹本直一":"checked","田中和徳":"checked","大村秀章":"checked","柴山昌彦":"checked","菅原一秀":"checked","松野博一":"checked","石田真敏":"checked","岩屋毅":"checked","佐藤勉":"checked","川崎二郎":"checked","今村雅弘":"checked","松浪健太":"checked","伊吹文明":"checked","谷公一":"checked","谷畑孝":"checked"},"career":{"伊東良孝":{"y":2009,"hosen":false,"gap":0,"en":45},"江渡聡徳":{"y":1996,"hosen":false,"gap":1,"en":41},"大島理森":{"y":1983,"hosen":false,"gap":0,"en":37},"木村太郎":{"y":1996,"hosen":false,"gap":0,"en":41},"小野寺五典":{"y":1997,"hosen":true,"gap":1,"en":null},"加藤紘一":{"y":1972,"hosen":false,"gap":0,"en":33},"梶山弘志":{"y":2000,"hosen":false,"gap":0,"en":42},"茂木敏充":{"y":1993,"hosen":false,"gap":0,"en":40},"福田康夫":{"y":1990,"hosen":false,"gap":0,"en":39},"小渕優子":{"y":2000,"hosen":false,"gap":0,"en":42},"森英介":{"y":1990,"hosen":false,"gap":0,"en":39},"浜田靖一":{"y":1993,"hosen":false,"gap":0,"en":40},"菅義偉":{"y":1996,"hosen":false,"gap":0,"en":41},"小泉進次郎":{"y":2009,"hosen":false,"gap":0,"en":45},"河野太郎":{"y":1996,"hosen":false,"gap":0,"en":41},"石原伸晃":{"y":1990,"hosen":false,"gap":0,"en":39},"下村博文":{"y":1996,"hosen":false,"gap":0,"en":41},"平沢勝栄":{"y":1996,"hosen":false,"gap":0,"en":41},"井上信治":{"y":2003,"hosen":false,"gap":0,"en":43},"宮腰光寛":{"y":1996,"hosen":false,"gap":0,"en":41},"橘慶一郎":{"y":2009,"hosen":false,"gap":0,"en":45},"森喜朗":{"y":1969,"hosen":false,"gap":0,"en":32},"稲田朋美":{"y":2005,"hosen":false,"gap":0,"en":44},"山本拓":{"y":1990,"hosen":false,"gap":2,"en":39},"高木毅":{"y":2000,"hosen":false,"gap":0,"en":42},"棚橋泰文":{"y":1996,"hosen":false,"gap":0,"en":41},"金子一義":{"y":1986,"hosen":false,"gap":0,"en":38},"三ツ矢憲生":{"y":2003,"hosen":false,"gap":0,"en":43},"谷垣禎一":{"y":1983,"hosen":false,"gap":0,"en":37},"西野陽":{"y":1996,"hosen":false,"gap":0,"en":41},"西村康稔":{"y":2003,"hosen":false,"gap":0,"en":43},"田野瀬良太郎":{"y":1993,"hosen":false,"gap":0,"en":40},"二階俊博":{"y":1983,"hosen":false,"gap":0,"en":37},"石破茂":{"y":1986,"hosen":false,"gap":0,"en":38},"赤沢亮正":{"y":2005,"hosen":false,"gap":0,"en":44},"細田博之":{"y":1990,"hosen":false,"gap":0,"en":39},"竹下亘":{"y":2000,"hosen":false,"gap":0,"en":42},"逢沢一郎":{"y":1986,"hosen":false,"gap":0,"en":38},"加藤勝信":{"y":2003,"hosen":false,"gap":0,"en":43},"岸田文雄":{"y":1993,"hosen":false,"gap":0,"en":40},"高村正彦":{"y":1980,"hosen":false,"gap":0,"en":36},"河村建夫":{"y":1990,"hosen":false,"gap":0,"en":39},"安倍晋三":{"y":1993,"hosen":false,"gap":0,"en":40},"後藤田正純":{"y":2000,"hosen":false,"gap":0,"en":42},"大野功統":{"y":1986,"hosen":false,"gap":0,"en":38},"塩崎恭久":{"y":1993,"hosen":false,"gap":1,"en":40},"村上誠一郎":{"y":1986,"hosen":false,"gap":0,"en":38},"山本公一":{"y":1993,"hosen":false,"gap":0,"en":40},"福井照":{"y":2000,"hosen":false,"gap":0,"en":42},"中谷元":{"y":1990,"hosen":false,"gap":0,"en":39},"山本有二":{"y":1990,"hosen":false,"gap":0,"en":39},"鳩山邦夫":{"y":1976,"hosen":false,"gap":1,"en":34},"古賀誠":{"y":1980,"hosen":false,"gap":0,"en":36},"麻生太郎":{"y":1979,"hosen":false,"gap":1,"en":35},"武田良太":{"y":2003,"hosen":false,"gap":0,"en":43},"保利耕輔":{"y":1979,"hosen":false,"gap":0,"en":35},"坂本哲志":{"y":2003,"hosen":false,"gap":1,"en":43},"園田博之":{"y":1986,"hosen":false,"gap":0,"en":38},"金子恭之":{"y":2000,"hosen":false,"gap":0,"en":42},"江藤拓":{"y":2003,"hosen":false,"gap":0,"en":43},"古川禎久":{"y":2003,"hosen":false,"gap":0,"en":43},"徳田毅":{"y":2005,"hosen":false,"gap":0,"en":44},"小里泰弘":{"y":2005,"hosen":false,"gap":0,"en":44},"森山裕":{"y":2004,"hosen":true,"gap":0,"en":null},"武部勤":{"y":1986,"hosen":false,"gap":0,"en":38},"吉野正芳":{"y":2000,"hosen":false,"gap":0,"en":42},"佐田玄一郎":{"y":1990,"hosen":false,"gap":0,"en":39},"甘利明":{"y":1983,"hosen":false,"gap":0,"en":37},"鴨下一郎":{"y":1993,"hosen":false,"gap":0,"en":40},"長島忠美":{"y":2005,"hosen":false,"gap":0,"en":44},"田村憲久":{"y":1996,"hosen":false,"gap":0,"en":41},"近藤三津枝":{"y":2005,"hosen":false,"gap":0,"en":44},"阿部俊子":{"y":2005,"hosen":false,"gap":0,"en":44},"平井卓也":{"y":2000,"hosen":false,"gap":0,"en":42},"野田毅":{"y":1972,"hosen":false,"gap":0,"en":33},"村田吉隆":{"y":1990,"hosen":false,"gap":0,"en":39},"山口俊一":{"y":1990,"hosen":false,"gap":0,"en":39},"秋葉賢也":{"y":2005,"hosen":false,"gap":0,"en":44},"額賀福志郎":{"y":1983,"hosen":false,"gap":0,"en":37},"林幹雄":{"y":1993,"hosen":false,"gap":0,"en":40},"平将明":{"y":2005,"hosen":false,"gap":0,"en":44},"北村茂男":{"y":2005,"hosen":false,"gap":0,"en":44},"塩谷立":{"y":1990,"hosen":false,"gap":1,"en":39},"山本幸三":{"y":1993,"hosen":false,"gap":1,"en":40},"町村信孝":{"y":1983,"hosen":false,"gap":0,"en":37},"柳本卓治":{"y":1990,"hosen":false,"gap":1,"en":39},"馳浩":{"y":2000,"hosen":false,"gap":0,"en":42},"河井克行":{"y":1996,"hosen":false,"gap":1,"en":41},"谷川弥一":{"y":2003,"hosen":false,"gap":0,"en":43},"遠藤利明":{"y":1993,"hosen":false,"gap":1,"en":40},"永岡桂子":{"y":2005,"hosen":false,"gap":0,"en":44},"松本純":{"y":1996,"hosen":false,"gap":1,"en":41},"与謝野馨":{"y":1976,"hosen":false,"gap":2,"en":34},"野田聖子":{"y":1993,"hosen":false,"gap":0,"en":40},"中川秀直":{"y":1976,"hosen":false,"gap":2,"en":34},"長勢甚遠":{"y":1990,"hosen":false,"gap":0,"en":39},"高市早苗":{"y":1993,"hosen":false,"gap":1,"en":40},"衛藤征士郎":{"y":1983,"hosen":false,"gap":0,"en":37},"金田勝年":{"y":2009,"hosen":false,"gap":0,"en":45},"新藤義孝":{"y":1996,"hosen":false,"gap":1,"en":41},"小池百合子":{"y":1993,"hosen":false,"gap":0,"en":40},"古屋圭司":{"y":1990,"hosen":false,"gap":0,"en":39},"齋藤健":{"y":2009,"hosen":false,"gap":0,"en":45},"北村誠吾":{"y":2000,"hosen":false,"gap":0,"en":42},"竹本直一":{"y":1996,"hosen":false,"gap":0,"en":41},"田中和徳":{"y":1996,"hosen":false,"gap":0,"en":41},"大村秀章":{"y":1996,"hosen":false,"gap":0,"en":41},"柴山昌彦":{"y":2004,"hosen":true,"gap":0,"en":null},"菅原一秀":{"y":2003,"hosen":false,"gap":0,"en":43},"松野博一":{"y":2000,"hosen":false,"gap":0,"en":42},"石田真敏":{"y":2003,"hosen":false,"gap":0,"en":43},"岩屋毅":{"y":1990,"hosen":false,"gap":3,"en":39},"佐藤勉":{"y":1996,"hosen":false,"gap":0,"en":41},"川崎二郎":{"y":1980,"hosen":false,"gap":1,"en":36},"今村雅弘":{"y":1996,"hosen":false,"gap":0,"en":41},"松浪健太":{"y":2002,"hosen":true,"gap":1,"en":null},"伊吹文明":{"y":1983,"hosen":false,"gap":0,"en":37},"谷公一":{"y":2003,"hosen":false,"gap":0,"en":43},"谷畑孝":{"y":1996,"hosen":false,"gap":0,"en":41}},"kana":{"伊東良孝":"いとう よしたか","江渡聡徳":"えと あきのり","大島理森":"おおしま ただもり","木村太郎":"きむら たろう","小野寺五典":"おのでら いつのり","加藤紘一":"かとう こういち","梶山弘志":"かじやま ひろし","茂木敏充":"もてぎ としみつ","福田康夫":"ふくだ やすお","小渕優子":"おぶち ゆうこ","森英介":"もり えいすけ","浜田靖一":"はまだ やすかず","菅義偉":"すが よしひで","小泉進次郎":"こいずみ しんじろう","河野太郎":"こうの たろう","石原伸晃":"いしはら のぶてる","下村博文":"しもむら はくぶん","平沢勝栄":"ひらさわ かつえい","井上信治":"いのうえ しんじ","宮腰光寛":"みやこし みつひろ","橘慶一郎":"たちばな けいいちろう","森喜朗":"もり よしろう","稲田朋美":"いなだ ともみ","山本拓":"やまもと たく","高木毅":"たかぎ つよし","棚橋泰文":"たなはし やすふみ","金子一義":"かねこ かずよし","三ツ矢憲生":"みつや のりお","谷垣禎一":"たにがき さだかず","西野陽":"にしの あきら","西村康稔":"にしむら やすとし","田野瀬良太郎":"たのせ りょうたろう","二階俊博":"にかい としひろ","石破茂":"いしば しげる","赤沢亮正":"（赤沢 亮正）<br>あかざわ りょうせい","細田博之":"ほそだ ひろゆき","竹下亘":"たけした わたる","逢沢一郎":"あいさわ いちろう","加藤勝信":"かとう かつのぶ","岸田文雄":"きしだ ふみお","高村正彦":"こうむら まさひこ","河村建夫":"かわむら たけお","安倍晋三":"あべ しんぞう","後藤田正純":"ごとうだ まさずみ","大野功統":"おおの よしのり","塩崎恭久":"しおざき やすひさ","村上誠一郎":"むらかみ せいいちろう","山本公一":"やまもと こういち","福井照":"ふくい てる","中谷元":"なかたに げん","山本有二":"やまもと ゆうじ","鳩山邦夫":"はとやま くにお","古賀誠":"こが まこと","麻生太郎":"あそう たろう","武田良太":"たけだ りょうた","保利耕輔":"ほり こうすけ","坂本哲志":"さかもと てつし","園田博之":"そのだ ひろゆき","金子恭之":"かねこ やすし","江藤拓":"えとう たく","古川禎久":"ふるかわ よしひさ","徳田毅":"とくだ たけし","小里泰弘":"おざと やすひろ","森山裕":"もりやま ひろし","武部勤":"たけべ つとむ","吉野正芳":"よしの まさよし","佐田玄一郎":"さた げんいちろう","甘利明":"あまり あきら","鴨下一郎":"かもした いちろう","長島忠美":"ながしま ただよし","田村憲久":"たむら のりひさ","近藤三津枝":"こんどう みつえ","阿部俊子":"あべ としこ","平井卓也":"ひらい たくや","野田毅":"のだ たけし","村田吉隆":"むらた よしたか","山口俊一":"やまぐち しゅんいち","秋葉賢也":"あきば けんや","額賀福志郎":"ぬかが ふくしろう","林幹雄":"はやし もとお","平将明":"たいら まさあき","北村茂男":"きたむら しげお","塩谷立":"しおのや りゅう","山本幸三":"やまもと こうぞう","町村信孝":"まちむら のぶたか","柳本卓治":"やなぎもと たくじ","馳浩":"はせ ひろし","河井克行":"かわい かつゆき","谷川弥一":"（谷川 彌一）<br />たにがわ やいち","遠藤利明":"えんどう としあき","永岡桂子":"ながおか けいこ","松本純":"まつもと じゅん","与謝野馨":"よさの かおる","野田聖子":"のだ せいこ","中川秀直":"なかがわ ひでなお","長勢甚遠":"ながせ じんえん","高市早苗":"たかいち さなえ","衛藤征士郎":"えとう せいしろう","金田勝年":"かねだ かつとし","新藤義孝":"しんどう よしたか","小池百合子":"こいけ ゆりこ","古屋圭司":"ふるや けいじ","齋藤健":"さいとう けん","北村誠吾":"きたむら せいご","竹本直一":"たけもと なおかず","田中和徳":"たなか かずのり","大村秀章":"おおむら ひであき","柴山昌彦":"しばやま まさひこ","菅原一秀":"すがわら いっしゅう","松野博一":"まつの ひろかず","石田真敏":"いしだ まさとし","岩屋毅":"いわや たけし","佐藤勉":"さとう つとむ","川崎二郎":"かわさき じろう","今村雅弘":"いまむら まさひろ","松浪健太":"まつなみ けんた","伊吹文明":"いぶき ぶんめい","谷公一":"たに こういち","谷畑孝":"たにはた たかし"},"race":{"谷垣禎一":{"res":"当選（300票：議員票120・党員票180）","rep":["谷畑孝","田野瀬良太郎"],"m":["石田真敏","石原伸晃","今村雅弘","岩屋毅","小里泰弘","小池百合子","佐田玄一郎","高木毅","竹下亘","谷公一","徳田毅","村上誠一郎","森山裕","泉信也","北川イッセイ","佐藤正久","二之湯智","森雅子"]},"河野太郎":{"res":"2位（144票：議員票35・党員票109）","rep":["柴山昌彦","平将明"],"m":["愛知治郎","井上信治","大村秀章","河井克行","川口順子","神取忍","小泉昭男","齋藤健","菅原一秀","世耕弘成","田中和徳","田村耕太郎","塚田一郎","永岡桂子","平沢勝栄","丸山和也","山本一太","義家弘介"]},"西村康稔":{"res":"3位（54票：議員票43・党員票11）","rep":["加藤勝信","武田良太"],"m":["鴨下一郎","木村太郎","北村茂男","塩谷立","高市早苗","馳浩","鳩山邦夫","古川禎久","古屋圭司","三ツ矢憲生","山本有二","与謝野馨","衛藤晟一","礒崎陽輔","末松信介","中山恭子","古川俊治","山谷えり子"]}},"racefac":{"愛知治郎":"無派閥","川口順子":"無派閥","神取忍":"無派閥","小泉昭男":"無派閥","世耕弘成":"町村派","田村耕太郎":"額賀派","塚田一郎":"麻生派","丸山和也":"無派閥","山本一太":"町村派","義家弘介":"町村派","衛藤晟一":"伊吹派","礒崎陽輔":"町村派","末松信介":"町村派","中山恭子":"町村派","古川俊治":"町村派","山谷えり子":"町村派","泉信也":"二階派","北川イッセイ":"町村派","佐藤正久":"額賀派","二之湯智":"額賀派","森雅子":"町村派"},"groups":[["清和会","清和会（町村派）","選挙時の最大派閥","abe"],["平成研","平成研究会（津島派）","選挙後に額賀派へ","motegi"],["宏池会","宏池会（古賀派）","2008年に谷垣派と合流","kishida"],["近未来","近未来政治研究会（山崎派）","会長の山崎拓は落選","moriyama"],["為公会","為公会（麻生派）","総裁派閥","aso"],["志帥会","志帥会（伊吹派）","","nikai"],["番町研","番町政策研究所（高村派）","のち麻生派に合流","bancho"],["二階G","新しい波（二階派）","11月に伊吹派へ合流","nami"],["無派閥","無派閥・系列未判明","","none"]],"meta":{"year":2009,"eyebrow":"2009年8月30日 第45回衆院選 ・ 自民党の衆院当選者119人","h1":"自民党衆院議員 派閥別名簿 2009","lede":"政権交代の選挙で生き残った自民党の衆院議員119人を、選挙時点の派閥、全員一覧、選挙時と選挙後のポスト、当選同期、血縁、地縁、9月の総裁選の7つの切り口で見る名簿。議員を押すと、所属の根拠、閣僚歴、親族、選挙区が開く。","memo":"自民党は公示前の300議席から119議席に減り、結党以来はじめて第1党から転落した。当選者の4割近い47人は小選挙区で敗れて比例で復活した議員で、初当選は5人だけだった。","about":"このページについて：公開情報（Wikipedia日本語版の各議員・派閥・内閣・総裁選の記事）をもとに個人が作成した非公式の名簿です。派閥は総選挙時点（2009年8月30日）の所属で、資料で確かめられなかった一部は推定や未判明としています。参院議員は含みません。各項目の出典と分類の方法はページ下部に記しています。","years":[["一覧","../","link"],["2012年","","soon"],["2009年","","cur"],["2005年","","soon"],["2003年","","soon"],["2000年","","soon"]],"chartnote":"総選挙時点の所属で数えた。帯の色は当選のしかた。小選挙区で勝った議員、小選挙区で敗れて比例で復活した議員、比例単独の議員の順。","termnote":"2009年の選挙を含めた衆院の当選回数。参院での当選は含めない。","agenote":"2009年8月30日（投票日）時点の年齢。帯は年代別の人数、右は平均年齢と閣僚経験者の人数。","cohnote":"衆院で初めて当選した選挙ごとの人数。色は派閥。行を押すとその年の顔ぶれが出る。落選や不出馬で当選が途切れた議員も、最初に当選した選挙で数えた。","survh":"選挙時の政務三役は何人残ったか","survnote":"麻生内閣の閣僚・副大臣・政務官と党執行部のうち、衆院議員として2009年の選挙で当選した人の数。参院議員と公明党の議員は分母に入れていない。","survkeys":[["内閣","閣僚・官房副長官"],["副大臣","副大臣"],["政務官","大臣政務官"],["党執行部","党執行部（選挙時）"]],"sumkeys":[["内閣","閣僚・官房副長官"],["副大臣","副大臣"],["政務官","政務官"],["党執行部後","選挙後の党執行部"]],"raceh":"2009年9月の総裁選と推薦人","racenote":"野党に転落した直後の総裁選で、谷垣禎一、河野太郎、西村康稔の3人が争った。推薦人の派閥は告示時点のもの（Wikipediaの記事の表による）。参院議員の推薦人は名簿に入っていないので、派閥名だけを示した。","racelabel":{"平成研":"額賀派","無派閥":"無派閥"},"agedate":"2009年8月30日","pairsnote":"この選挙で当選した自民党議員どうしの親族関係。麻生太郎氏の義弟の鈴木俊一氏、岸田文雄氏のいとこの宮澤洋一氏、福田康夫氏の甥の越智隆雄氏、石原伸晃氏の弟の石原宏高氏らは、この選挙で落選した。","nopairs":"2009年の当選者どうしで親族関係にある組み合わせは見当たらない。麻生太郎氏の義弟の鈴木俊一氏、岸田文雄氏のいとこの宮澤洋一氏、福田康夫氏の甥の越智隆雄氏、石原伸晃氏の弟の石原宏高氏らは、この選挙で落選した。","selPref":"東京","method":[["派閥","総選挙の投票日（2009年8月30日）時点の所属。「資料で確認」は、Wikipediaの麻生内閣の記事にある閣僚・副大臣・政務官の所属表と、2009年総裁選の記事にある推薦人の所属表で確かめたもの。「記事で確認」は本人の記事の所属歴や派閥の記事の所属議員一覧で確かめたもの。どちらでも確かめられなかった議員は、系譜から推定するか未判明とした。"],["派閥の呼び名","色と並びは清和会・平成研究会・宏池会といった系譜でそろえ、当時の領袖の名前を添えた。平成研究会は会長の津島雄二氏が選挙で引退し、選挙後に額賀派となった。宏池会は2008年に谷垣派と合流した古賀派。新しい波（二階派）は11月に伊吹派へ合流した。"],["選挙後の動き","9月から年末までの退会・合流は、議員ごとの注記に書いた。中川秀直氏と小池百合子氏は10月に清和会を退会し、菅義偉氏は総裁選で河野氏を推すため宏池会を退会した。"],["当選回数・初当選","各議員の記事の選挙歴の表から、2009年までの衆院選と補選の当選を数えた。表のない21人は記事の本文と職歴欄で数えた。初当選から2009年までの総選挙の数と当選回数の差を、当選が途切れた回数とした。"],["閣僚歴","各議員の記事の末尾にある歴任表から、2009年までに就いた大臣・庁長官・官房長官・国家公安委員長を拾った。同じ年に兼ねた職は一つの入閣として数えた。"],["ポスト","選挙時のポストは麻生内閣の記事の閣僚・副大臣・政務官の表（8月30日時点、途中で交代した人は後任）と、党執行部（幹事長・総務会長・政調会長・国対委員長）。選挙後は谷垣総裁のもとで9月29日以降に就いた党執行部。"],["血縁","2026年の名簿にもいる議員は、2026年10月に取得した記事から拾った親族をそのまま使った。それ以外の議員は、記事の「親族（政治家）」欄から政治家の親族を拾い、続柄に直系・傍系・姻族と親等を付けた。肩書が記事に書かれていない親族は地方政治の親族として数えた。子や娘婿など、本人よりあとに政治家になった親族は世襲の数に入れていない。"],["地縁","小選挙区で当選した議員と比例で復活した議員は、その小選挙区の都道府県に置いた。比例単独の議員はブロックでまとめた。"]],"sources":[["Wikipedia 第45回衆議院議員総選挙（当選者の一覧）","https://ja.wikipedia.org/wiki/第45回衆議院議員総選挙"],["Wikipedia 麻生内閣（閣僚・副大臣・政務官と所属派閥）","https://ja.wikipedia.org/wiki/麻生内閣"],["Wikipedia 2009年自由民主党総裁選挙（推薦人と所属派閥）","https://ja.wikipedia.org/wiki/2009年自由民主党総裁選挙"],["Wikipedia 清和政策研究会","https://ja.wikipedia.org/wiki/清和政策研究会"],["Wikipedia 平成研究会","https://ja.wikipedia.org/wiki/平成研究会"],["Wikipedia 宏池会","https://ja.wikipedia.org/wiki/宏池会"],["Wikipedia 志帥会","https://ja.wikipedia.org/wiki/志帥会"],["Wikipedia 為公会","https://ja.wikipedia.org/wiki/為公会"],["Wikipedia 近未来政治研究会","https://ja.wikipedia.org/wiki/近未来政治研究会"],["Wikipedia 番町政策研究所","https://ja.wikipedia.org/wiki/番町政策研究所"],["Wikipedia 新しい波 (派閥)","https://ja.wikipedia.org/wiki/新しい波_(派閥)"],["Wikipedia日本語版の各議員の記事（2026年10月23日に取得）","https://ja.wikipedia.org/"]]}};
+const META = DATA.meta, ROWS = DATA.rows, POSTS = DATA.posts, KIN = DATA.kin, CAR = DATA.career;
+const BY = Object.fromEntries(ROWS.map(r=>[r.n,r]));
+const GROUPS = DATA.groups;
+const GMAP = Object.fromEntries(GROUPS.map(g=>[g[0],g]));
+const SHORT = g => GMAP[g][1].replace(/（.*）/,"");
+const LEAD = g => (GMAP[g][1].match(/（(.*)）/)||[,""])[1];
+const FC = g => `var(--f-${GMAP[g][3]})`;
+const KIND = {doc:"資料で確認",art:"記事で確認",est:"推定",none:"未判明"};
+const KORDER = {doc:0,art:1,est:2,none:3};
+const SKL = {"小選挙区":"小選挙区","比例復活":"比例復活","比例単独":"比例単独"};
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fchip = g => `<span class="fchip" style="background:${FC(g)}">${esc(LEAD(g)||SHORT(g))}</span>`;
+const gIdx = g => GROUPS.findIndex(x=>x[0]===g);
+
+/* 見出し */
+document.getElementById("eyebrow").textContent=META.eyebrow;
+document.getElementById("h1").textContent=META.h1;
+document.getElementById("lede").textContent=META.lede;
+document.getElementById("memo").textContent=META.memo||"";
+document.getElementById("about").textContent=META.about;
+document.getElementById("years").innerHTML=`<span class="meta">時点：</span>`+META.years.filter(y=>y[2]!=="soon").map(([lab,href,st])=>st==="cur"?`<span class="y cur" aria-current="page">${esc(lab)}</span>`:`<a href="${esc(href)}">${esc(lab)}</a>`).join("")+(META.years.some(y=>y[2]==="soon")?`<span class="meta">${esc(META.years.filter(y=>y[2]==="soon").map(y=>y[0].replace("年","")).join("・"))}年は準備中</span>`:"");
+["pairsnote","chartnote","termnote","agenote","cohnote","survnote","racenote"].forEach(id=>document.getElementById(id).textContent=META[id]||"");
+document.getElementById("survh").textContent=META.survh;
+document.getElementById("raceh").textContent=META.raceh;
+document.getElementById("method").innerHTML=META.method.map(([h,t])=>`<div><h3>${esc(h)}</h3>${esc(t)}</div>`).join("");
+document.getElementById("sources").innerHTML=META.sources.map(([t,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a>`).join("");
+
+/* ポストを議員に付ける */
+const POSTOF = {};
+POSTS.forEach(([key,title,items])=>items.forEach(([role,n,note,inr])=>{
+  if(!inr) return;
+  const label = key==="党執行部後" ? role+"（選挙後）" : role;
+  (POSTOF[n] ||= []).push({key,label});
+}));
+const topPost = n => POSTOF[n] ? POSTOF[n].map(p=>p.label).join("・") : "";
+
+/* 血縁 */
+const kinCount = n => (KIN[n]||[]).filter(k=>(k.cat==="血族"||k.cat==="姻族"||k.cat==="配偶者")&&!k.desc&&!k.later);
+function kinKind(n){ const ks=kinCount(n); if(!ks.length) return "none"; return ks.some(k=>k.nat)?"nat":"local"; }
+const HERED = new Set(ROWS.filter(r=>kinKind(r.n)!=="none").map(r=>r.n));
+function relLabel(k){
+  if(k.cat==="配偶者"||k.cat==="元配偶者"||k.cat==="その他"||k.deg==null) return k.rel;
+  if(k.cat==="姻族") return `${k.rel}（姻族${k.deg}親等）`;
+  return `${k.rel}（${k.line}${k.deg}親等）`;
+}
+/* 総裁選 */
+const RACE = DATA.race, RACEOF = {};
+Object.entries(RACE).forEach(([c,v])=>{ v.rep.forEach(n=>RACEOF[n]=[c,"推薦人代表・責任者"]); v.m.forEach(n=>RACEOF[n]=[c,"推薦人"]); });
+
+const TBANDS=[["1回",1,1,"var(--tb1)"],["2〜3回",2,3,"var(--tb2)"],["4〜6回",4,6,"var(--tb3)"],["7〜9回",7,9,"var(--tb4)"],["10回以上",10,99,"var(--tb5)"]];
+const ABANDS=[["40歳未満",0,39,"var(--ag1)"],["40代",40,49,"var(--ag2)"],["50代",50,59,"var(--ag3)"],["60代",60,69,"var(--ag4)"],["70歳以上",70,200,"var(--ag5)"]];
+const termText = r => `当選${r.tc}回`;
+
+(function(){
+  const c=k=>ROWS.filter(r=>r.sk===k).length;
+  document.getElementById("totals").innerHTML=`<span>当選者 <b>${ROWS.length}</b></span><span>小選挙区 <b>${c("小選挙区")}</b></span><span>比例復活 <b>${c("比例復活")}</b></span><span>比例単独 <b>${c("比例単独")}</b></span><span>初当選 <b>${ROWS.filter(r=>r.x).length}</b></span><span>政治家の親族あり <b>${HERED.size}</b></span><span>無派閥・未判明 <b>${ROWS.filter(r=>r.g==="無派閥").length}</b></span>`;
+})();
+
+/* ---------- 派閥 ---------- */
+const state={k:"",q:"",s:""};
+try{ const s=JSON.parse(localStorage.getItem("ldp-roster-"+META.year)||"{}"); state.k=s.k||""; state.s=s.s||""; }catch(e){}
+function save(){try{localStorage.setItem("ldp-roster-"+META.year,JSON.stringify({k:state.k,s:state.s}));}catch(e){}}
+const gmax=()=>Math.max(...GROUPS.map(([g])=>ROWS.filter(r=>r.g===g).length));
+function drawChart(){
+  const max=gmax();
+  document.getElementById("chart").innerHTML=GROUPS.map(([g])=>{
+    const all=ROWS.filter(r=>r.g===g); const s=all.filter(r=>r.sk==="小選挙区").length, f=all.filter(r=>r.sk==="比例復活").length, p=all.length-s-f;
+    return `<span class="lab"><span class="sw" style="background:${FC(g)}"></span>${esc(SHORT(g))}</span>
+     <span class="bar" aria-hidden="true"><i style="width:${s/max*100}%;background:var(--sk-smd)"></i><i style="width:${f/max*100}%;background:var(--sk-fk)"></i><i style="width:${p/max*100}%;background:var(--sk-pr)"></i></span>
+     <span class="num">${all.length}人（小選挙区${s}・復活${f}${p?"・単独"+p:""}）</span>`;}).join("");
+}
+function drawTerms(){
+  const max=gmax();
+  document.getElementById("termchart").innerHTML=GROUPS.map(([g])=>{
+    const all=ROWS.filter(r=>r.g===g); const avg=all.reduce((s,r)=>s+r.tc,0)/all.length;
+    const segs=TBANDS.map(([lab,lo,hi,c])=>{const v=all.filter(r=>r.tc>=lo&&r.tc<=hi).length;return v?`<i style="width:${v/max*100}%;background:${c}" title="${lab} ${v}人"></i>`:"";}).join("");
+    return `<span class="lab"><span class="sw" style="background:${FC(g)}"></span>${esc(SHORT(g))}</span><span class="bar" aria-hidden="true">${segs}</span><span class="num">平均${avg.toFixed(1)}回・${all.length}人</span>`;}).join("");
+  document.getElementById("termlegend").innerHTML=TBANDS.map(([lab,,,c])=>`<span><span class="sw" style="background:${c}"></span> ${lab}</span>`).join("");
+}
+function drawAges(){
+  const max=gmax();
+  document.getElementById("agechart").innerHTML=GROUPS.map(([g])=>{
+    const all=ROWS.filter(r=>r.g===g); const avg=all.reduce((s,r)=>s+r.age,0)/all.length; const cab=all.filter(r=>r.cab).length;
+    const segs=ABANDS.map(([lab,lo,hi,c])=>{const v=all.filter(r=>r.age>=lo&&r.age<=hi).length;return v?`<i style="width:${v/max*100}%;background:${c}" title="${lab} ${v}人"></i>`:"";}).join("");
+    return `<span class="lab"><span class="sw" style="background:${FC(g)}"></span>${esc(SHORT(g))}</span><span class="bar" aria-hidden="true">${segs}</span><span class="num">平均${avg.toFixed(1)}歳・閣僚経験${cab}人</span>`;}).join("");
+  document.getElementById("agelegend").innerHTML=ABANDS.map(([lab,,,c])=>`<span><span class="sw" style="background:${c}"></span> ${lab}</span>`).join("");
+}
+function match(r){
+  const k=state.k;
+  if(k==="smd"&&r.sk!=="小選挙区") return false; if(k==="fk"&&r.sk!=="比例復活") return false; if(k==="pr"&&r.sk!=="比例単独") return false;
+  if(k==="new"&&!r.x) return false; if(k==="post"&&!POSTOF[r.n]) return false; if(k==="cab"&&!r.cab) return false;
+  if(["doc","art","est","none"].includes(k)&&r.k!==k) return false;
+  if(state.q){ const q=state.q; if(!(r.n.includes(q)||r.d.includes(q)||r.w.includes(q)||topPost(r.n).includes(q)||termText(r).includes(q)||(DATA.kana[r.n]||"").includes(q))) return false; }
+  return true;
+}
+function card(r){
+  const cls=r.k==="est"?" est":(r.k==="none"?" none":"");
+  const p=topPost(r.n);
+  return `<button type="button" class="m${cls}" data-n="${esc(r.n)}"><span class="top"><span class="nm">${esc(r.n)}</span><span class="chip k-${r.k}">${KIND[r.k]}</span><span class="terms">${r.tc}回</span>${r.x?'<span class="new">初当選</span>':''}${r.sk==="比例復活"?'<span class="chip h-参">比例復活</span>':""}</span>
+    <span class="dist">${esc(r.d)}</span><span class="meta">${r.age}歳${r.cab?" ・ 閣僚経験あり":""}</span>${p?`<span class="post">${esc(p)}</span>`:""}${r.w?`<span class="why">${esc(r.w)}</span>`:""}</button>`;
+}
+function sorter(a,b){ return state.s==="terms" ? (b.tc-a.tc) : state.s==="termsAsc" ? (a.tc-b.tc) : state.s==="young" ? (a.age-b.age) : state.s==="old" ? (b.age-a.age) : state.s==="cab" ? (b.cab-a.cab)||(b.tc-a.tc) : (KORDER[a.k]-KORDER[b.k])||(b.tc-a.tc); }
+function drawGroups(){
+  let total=0;
+  const html=GROUPS.map(([g,label,sub])=>{
+    const rs=ROWS.filter(r=>r.g===g&&match(r)).sort(sorter);
+    total+=rs.length; if(!rs.length) return "";
+    const n=ROWS.filter(r=>r.g===g).length;
+    return `<section class="group"><div class="ghead"><span class="sw" style="background:${FC(g)};width:12px;height:12px"></span><h2>${esc(label)}</h2><span class="gn">${n}人${sub?" ・ "+esc(sub):""}</span></div>
+      <div class="list">${rs.map(card).join("")}</div></section>`;}).join("");
+  document.getElementById("groups").innerHTML=html||'<p class="empty">条件に合う議員はいません。検索語か絞り込みを変えてください。</p>';
+  document.getElementById("count").textContent=`${total}人を表示`;
+}
+const kindSel=document.getElementById("kind"); kindSel.value=state.k;
+kindSel.addEventListener("change",()=>{state.k=kindSel.value;save();drawGroups();});
+const sortSel=document.getElementById("sort"); sortSel.value=state.s;
+sortSel.addEventListener("change",()=>{state.s=sortSel.value;save();drawGroups();});
+document.getElementById("q").addEventListener("input",e=>{state.q=e.target.value.trim();drawGroups();});
+
+/* ---------- ポスト ---------- */
+function drawPosts(){
+  // 生き残り
+  document.getElementById("surv").innerHTML=META.survkeys.map(([key,lab])=>{
+    const its=POSTS.filter(p=>p[0]===key).flatMap(p=>p[2]).filter(x=>!/参院|公明/.test(x[2])||x[3]);
+    const won=its.filter(x=>x[3]).length;
+    return `<div class="box"><b>${esc(lab)}</b><span class="big">${won}<span class="meta"> ／ ${its.length}人</span></span><span class="meta">${its.length-won}人が当選者にいない</span></div>`;}).join("");
+  const sumKeys=META.sumkeys;
+  const counts={};
+  POSTS.forEach(([key,title,items])=>items.forEach(([role,n,note,inr])=>{ if(!inr) return; const g=BY[n].g; (counts[key] ||= {})[g]=(counts[key][g]||0)+1; }));
+  document.getElementById("psum").innerHTML=sumKeys.map(([k,lab])=>{
+    const c=counts[k]||{}; const tot=Object.values(c).reduce((a,b)=>a+b,0);
+    const segs=GROUPS.filter(([g])=>c[g]).map(([g])=>`<i style="width:${c[g]/tot*100}%;background:${FC(g)}" title="${esc(SHORT(g))} ${c[g]}"></i>`).join("");
+    const lst=GROUPS.filter(([g])=>c[g]).sort((a,b)=>c[b[0]]-c[a[0]]).map(([g])=>`<span style="display:inline-flex;align-items:center;gap:4px"><span class="sw" style="background:${FC(g)}"></span>${esc(SHORT(g))} ${c[g]}</span>`).join("");
+    return `<div class="box"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(lab)}</b><span class="count">${tot}人</span></div>
+      <div class="chart" style="grid-template-columns:1fr"><span class="bar" style="height:12px">${segs}</span></div>
+      <div class="legend" style="gap:4px 12px">${lst}</div></div>`;}).join("");
+  document.getElementById("postlists").innerHTML=POSTS.map(([key,title,items])=>`<section class="group"><div class="ghead"><h2>${esc(title)}</h2><span class="gn">${items.filter(x=>x[3]).length}／${items.length}人が当選者</span></div>
+    <div class="ptable">${items.map(([role,n,note,inr])=>{
+      if(!inr) return `<div class="prow"><span class="role">${esc(role)}</span><span class="pn">${esc(n)}<small>${esc(note)}</small></span><span class="tags">${/当選者にいない|落選/.test(note)?'<span class="lost">落選・引退</span>':""}</span></div>`;
+      const r=BY[n];
+      return `<button type="button" class="prow" data-n="${esc(n)}"><span class="role">${esc(role)}</span><span class="pn">${esc(n)}${note?`<small>${esc(note)}</small>`:""}</span><span class="tags"><span class="terms">${r.tc}回</span>${fchip(r.g)}${r.sk==="比例復活"?'<span class="chip h-参">復活</span>':""}</span></button>`;
+    }).join("")}</div></section>`).join("");
+}
+
+/* ---------- 経歴 ---------- */
+let cohY=null;
+function drawCareer(){
+  const ys=[...new Set(ROWS.map(r=>CAR[r.n].y))].sort((a,b)=>a-b);
+  if(cohY==null) cohY=META.year;
+  const mx=Math.max(...ys.map(y=>ROWS.filter(r=>CAR[r.n].y===y).length));
+  document.getElementById("cohchart").innerHTML=ys.map(y=>{const rs=ROWS.filter(r=>CAR[r.n].y===y);
+    const segs=GROUPS.map(([g])=>{const c=rs.filter(r=>r.g===g).length;return c?`<i style="width:${c/mx*100}%;background:${FC(g)}" title="${esc(SHORT(g))} ${c}"></i>`:"";}).join("");
+    const en=rs.map(r=>CAR[r.n].en).find(x=>x);
+    return `<button type="button" class="lab" data-y="${y}" aria-pressed="${y===cohY}">${y}年${en?`・第${en}回`:"・補選"}</button><span class="bar" data-y="${y}">${segs}</span><span class="num">${rs.length}人</span>`;}).join("");
+  document.querySelectorAll("#cohchart [data-y]").forEach(b=>b.addEventListener("click",()=>{cohY=+b.dataset.y;drawCareer();}));
+  const sel=ROWS.filter(r=>CAR[r.n].y===cohY).sort((a,b)=>gIdx(a.g)-gIdx(b.g)||b.tc-a.tc);
+  document.getElementById("cohlist").innerHTML=`<section class="group"><div class="ghead"><h2>${cohY}年に初当選した議員</h2><span class="gn">${sel.length}人</span></div>
+    <div class="names">${sel.map(r=>`<button type="button" class="nbtn" data-n="${esc(r.n)}"><span class="sw" style="background:${FC(r.g)}"></span>${esc(r.n)} <small style="color:var(--muted)">${r.tc}回${CAR[r.n].gap>0?"・中断":""}${CAR[r.n].hosen?"・補選":""}</small></button>`).join("")}</div></section>`;
+  const gp=ROWS.filter(r=>CAR[r.n].gap>0).sort((a,b)=>CAR[b.n].gap-CAR[a.n].gap);
+  document.getElementById("gaplist").innerHTML=gp.map(r=>`<button type="button" class="nbtn" data-n="${esc(r.n)}"><span class="sw" style="background:${FC(r.g)}"></span>${esc(r.n)} <small style="color:var(--muted)">${CAR[r.n].gap}回</small></button>`).join("");
+}
+
+/* ---------- 血縁 ---------- */
+let kinFilter="";
+function drawKin(){
+  const seen=new Set(), pairs=[];
+  Object.entries(KIN).forEach(([n,ks])=>ks.forEach(k=>{ if(!k.inr||k.cat==="元配偶者") return; const key=[n,k.o].sort().join("|"); if(seen.has(key)) return; seen.add(key); pairs.push([n,k.o,k]); }));
+  const node=n=>{const r=BY[n];return `<button type="button" class="node" data-n="${esc(n)}" style="border-color:${FC(r.g)}">${esc(n)}<small>${esc(SHORT(r.g))}</small></button>`;};
+  const pairLabel=k=>{ const d=k.cat==="配偶者"?"配偶者":`${k.cat==="姻族"?"姻族":(k.line||"")}${k.deg!=null?k.deg+"親等":""}`; return `の${esc(k.rel)}は<br>${d}`; };
+  document.getElementById("pairs").innerHTML=pairs.length?pairs.map(([a,b,k])=>`<div class="pair">${node(a)}<span class="link">${pairLabel(k)}</span>${node(b)}</div>`).join(""):`<p class="empty">${esc(META.nopairs||"当選者どうしの親族関係は見当たらない。")}</p>`;
+  const max=gmax();
+  document.getElementById("kinchart").innerHTML=GROUPS.map(([g])=>{
+    const all=ROWS.filter(r=>r.g===g); const c={nat:0,local:0,none:0}; all.forEach(r=>c[kinKind(r.n)]++);
+    return `<span class="lab"><span class="sw" style="background:${FC(g)}"></span>${esc(SHORT(g))}</span>
+      <span class="bar" aria-hidden="true"><i style="width:${c.nat/max*100}%;background:var(--kin-nat)"></i><i style="width:${c.local/max*100}%;background:var(--kin-loc)"></i><i style="width:${c.none/max*100}%;background:var(--line)"></i></span>
+      <span class="num">国政${c.nat}・地方${c.local}／${all.length}人（${Math.round((c.nat+c.local)/all.length*100)}%）</span>`;}).join("");
+  const near=n=>{const ks=kinCount(n); if(ks.some(k=>k.line==="直系")) return 0; if(ks.some(k=>k.line==="傍系")) return 1; if(ks.some(k=>k.cat==="姻族")) return 2; return 3;};
+  const secs=[["直系に政治家がいる","親・祖父母・曾祖父母"],["傍系だけに政治家がいる","おじ・兄弟・いとこ・大おじなど"],["姻族だけに政治家がいる","岳父・義祖父など"],["配偶者が政治家",""]];
+  const by=[[],[],[],[]];
+  ROWS.forEach(r=>{ const k=kinKind(r.n); if(k==="none") return; if(kinFilter&&k!==kinFilter) return; by[near(r.n)].push(r.n); });
+  document.getElementById("kinlists").innerHTML=secs.map(([t,s],i)=>by[i].length?`<section class="group"><div class="ghead"><h2>${esc(t)}</h2><span class="gn">${by[i].length}人${s?" ・ "+esc(s):""}</span></div>
+    <div class="kgrid">${by[i].sort((a,b)=>gIdx(BY[a].g)-gIdx(BY[b].g)).map(n=>{const r=BY[n];
+      return `<button type="button" class="kc" data-n="${esc(n)}"><span style="display:flex;gap:6px;align-items:baseline;flex-wrap:wrap"><b>${esc(n)}</b>${fchip(r.g)}</span>
+      <span class="relchips">${KIN[n].filter(k=>!k.desc&&!k.later).map(k=>`<span class="relchip${k.nat?" nat":""}"><span class="d">${esc(relLabel(k))}</span><b>${esc(k.o)}</b></span>`).join("")}</span></button>`;}).join("")}</div></section>`:"").join("");
+}
+document.querySelectorAll("#kinfilter button").forEach(b=>b.addEventListener("click",()=>{kinFilter=b.dataset.v;document.querySelectorAll("#kinfilter button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));drawKin();}));
+
+/* ---------- 全員一覧 ---------- */
+const COLS=[
+ ["n","氏名",r=>r.n,r=>`<span class="nm">${esc(r.n)}</span>`],
+ ["g","派閥",r=>gIdx(r.g),r=>fchip(r.g)],
+ ["k","根拠",r=>KORDER[r.k],r=>`<span class="chip k-${r.k}">${KIND[r.k]}</span>`],
+ ["d","選挙区",r=>(r.p[0]||"〜")+r.d,r=>esc(r.d),"wcol"],
+ ["sk","選出",r=>["小選挙区","比例復活","比例単独"].indexOf(r.sk),r=>esc(r.sk)],
+ ["tc","当選",r=>r.tc,r=>r.tc+"回","num"],
+ ["age","年齢",r=>r.age,r=>r.age,"num"],
+ ["cab","閣僚",r=>r.cab,r=>r.cab?"あり":"","num"],
+ ["post","ポスト",r=>POSTOF[r.n]?0:1,r=>esc(topPost(r.n)),"wcol"],
+ ["fy","初当選",r=>CAR[r.n].y,r=>CAR[r.n].y+(CAR[r.n].gap>0?'<small style="color:var(--muted)">・中断</small>':""),"num"],
+ ["kin","政治家の親族",r=>({nat:0,local:1,none:2})[kinKind(r.n)],r=>({nat:"国政",local:"地方",none:""})[kinKind(r.n)]],
+ ["race","総裁選",r=>RACEOF[r.n]?RACEOF[r.n][0]:"〜",r=>RACEOF[r.n]?esc(RACEOF[r.n][0].slice(0,2))+"陣営":""],
+];
+const aState={f:"",q:"",col:"g",dir:1};
+function aMatch(r){
+  const f=aState.f;
+  if(f==="post"&&!POSTOF[r.n]) return false; if(f==="her"&&!HERED.has(r.n)) return false; if(f==="fk"&&r.sk!=="比例復活") return false; if(f==="new"&&!r.x) return false; if(f==="race"&&!RACEOF[r.n]) return false;
+  if(aState.q){ const hay=[r.n,DATA.kana[r.n]||"",r.d,r.p.join(" "),SHORT(r.g),LEAD(r.g),r.g,topPost(r.n),CAR[r.n].y+"年"].join(" "); if(!aState.q.split(/\s+/).every(w=>hay.includes(w))) return false; }
+  return true;
+}
+function drawAll(){
+  document.getElementById("ahead").innerHTML=COLS.map(([k,l])=>`<th scope="col" ${aState.col===k?`aria-sort="${aState.dir>0?"ascending":"descending"}"`:""}><button type="button" data-col="${k}">${l}</button></th>`).join("");
+  const c=COLS.find(x=>x[0]===aState.col);
+  const rs=ROWS.filter(aMatch).sort((a,b)=>{const x=c[2](a),y=c[2](b); const v=(typeof x==="number"&&typeof y==="number")?x-y:String(x).localeCompare(String(y),"ja"); return (v||(gIdx(a.g)-gIdx(b.g))||b.tc-a.tc)*aState.dir;});
+  document.getElementById("abody").innerHTML=rs.map(r=>`<tr data-n="${esc(r.n)}" tabindex="0">${COLS.map(([k,,,f,cls])=>`<td${cls?` class="${cls}"`:""}>${f(r)}</td>`).join("")}</tr>`).join("");
+  document.getElementById("acount").textContent=`${rs.length}人`;
+  document.querySelectorAll("#ahead [data-col]").forEach(b=>b.addEventListener("click",()=>{const k=b.dataset.col; if(aState.col===k) aState.dir*=-1; else {aState.col=k; aState.dir=["tc","age","cab"].includes(k)?-1:1;} drawAll();}));
+}
+document.getElementById("afilter").addEventListener("change",e=>{aState.f=e.target.value;drawAll();});
+document.getElementById("aq").addEventListener("input",e=>{aState.q=e.target.value.trim();drawAll();});
+document.getElementById("abody").addEventListener("keydown",e=>{const tr=e.target.closest("tr[data-n]"); if(tr&&(e.key==="Enter"||e.key===" ")){e.preventDefault();openDetail(tr.dataset.n);}});
+
+/* ---------- 地縁 ---------- */
+const TILES=[["北海道",12,0],["青森",12,1],["秋田",11,2],["岩手",12,2],["石川",8,3],["富山",9,3],["新潟",10,3],["山形",11,3],["宮城",12,3],
+ ["福井",7,4],["岐阜",8,4],["長野",9,4],["群馬",10,4],["栃木",11,4],["福島",12,4],
+ ["島根",3,5],["鳥取",4,5],["兵庫",5,5],["京都",6,5],["滋賀",7,5],["愛知",8,5],["山梨",9,5],["埼玉",10,5],["茨城",11,5],
+ ["山口",2,6],["広島",3,6],["岡山",4,6],["大阪",5,6],["奈良",6,6],["三重",7,6],["静岡",8,6],["神奈川",9,6],["東京",10,6],["千葉",11,6],
+ ["佐賀",0,7],["福岡",1,7],["愛媛",3,7],["香川",4,7],["和歌山",5,7],
+ ["長崎",0,8],["熊本",1,8],["大分",2,8],["高知",3,8],["徳島",4,8],
+ ["鹿児島",1,9],["宮崎",2,9],["沖縄",0,10]];
+let selPref=META.selPref||"東京";
+const inPref=p=>ROWS.filter(r=>r.p.includes(p));
+function plural(rs){const c={};rs.forEach(r=>c[r.g]=(c[r.g]||0)+1);let best=null;GROUPS.forEach(([g])=>{if(c[g]&&(!best||c[g]>c[best]))best=g;});return best;}
+function drawMap(){
+  document.getElementById("jmap").innerHTML=TILES.map(([p,x,y])=>{
+    const rs=inPref(p), g=plural(rs);
+    return `<button type="button" class="tile${rs.length?"":" zero"}" data-p="${p}" aria-pressed="${p===selPref}" style="grid-column:${x+1};grid-row:${y+1};${g?`background:${FC(g)}`:""}" aria-label="${p} ${rs.length}人"><span class="tn">${p}</span><span class="tc">${rs.length}</span></button>`;}).join("");
+  document.getElementById("maplegend").innerHTML=GROUPS.map(([g])=>`<span style="display:inline-flex;align-items:center;gap:4px"><span class="sw" style="background:${FC(g)}"></span>${esc(SHORT(g))}</span>`).join("");
+  document.querySelectorAll("#jmap .tile").forEach(t=>t.addEventListener("click",()=>{selPref=t.dataset.p;drawMap();drawRegion();}));
+}
+const nbtn=n=>{const r=BY[n];return `<button type="button" class="nbtn" data-n="${esc(n)}"><span class="sw" style="background:${FC(r.g)}"></span>${esc(n)}</button>`;};
+function drawRegion(){
+  const rs=inPref(selPref).sort((a,b)=>(a.sk===b.sk?0:a.sk==="小選挙区"?-1:1));
+  const won=rs.filter(r=>r.sk==="小選挙区").length;
+  document.getElementById("regionpanel").innerHTML=`<div class="ghead"><h2>${esc(selPref)}</h2><span class="gn">${rs.length}人（小選挙区で当選${won}・比例復活${rs.length-won}）</span></div>
+   ${rs.length?`<div class="ptable">${rs.map(r=>`<button type="button" class="prow" data-n="${esc(r.n)}"><span class="role">${esc(r.d.replace(/（.*）/,""))}</span><span class="pn">${esc(r.n)}<small>${r.sk==="比例復活"?"比例で復活":"小選挙区で当選"}${topPost(r.n)?"・"+esc(topPost(r.n)):""}</small></span><span class="tags">${fchip(r.g)}</span></button>`).join("")}</div>`:'<p class="empty">この県では自民党の候補が一人も当選していない。</p>'}`;
+  const order=["北海道","東北","北関東","南関東","東京","北陸信越","東海","近畿","中国","四国","九州"];
+  const blk=r=>r.b||r.bb;
+  document.getElementById("blocks").innerHTML=order.map(b=>{const fk=ROWS.filter(r=>r.bb===b), pr=ROWS.filter(r=>r.b===b); if(!fk.length&&!pr.length) return "";
+    return `<div class="blk"><b>比例${esc(b)}</b><span class="count">${fk.length+pr.length}人（復活${fk.length}${pr.length?"・単独"+pr.length:""}）</span>${pr.length?`<span class="meta">比例単独</span><div class="names">${pr.map(r=>nbtn(r.n)).join("")}</div>`:""}${fk.length?`<span class="meta">復活</span><div class="names">${fk.map(r=>nbtn(r.n)).join("")}</div>`:""}</div>`;}).join("");
+}
+
+/* ---------- 総裁選 ---------- */
+function drawRace(){
+  const order=Object.keys(RACE);
+  const RL=META.racelabel||{}; const gl=g=>RL[g]||LEAD(g)||SHORT(g); const fac=n=>BY[n]?gl(BY[n].g):(DATA.racefac[n]||""); const rchip=g=>`<span class="fchip" style="background:${FC(g)}">${esc(gl(g))}</span>`;
+  document.getElementById("racesum").innerHTML=`<div class="rate" style="grid-template-columns:auto 1fr auto"><span class="hd">候補</span><span class="hd">結果</span><span class="hd" style="text-align:right">推薦人のうち衆院当選者</span>
+    ${order.map(c=>{const v=RACE[c]; const all=v.rep.concat(v.m); const inr=all.filter(n=>BY[n]).length;
+      return `<span class="lab"><b>${esc(c)}</b> ${BY[c]?rchip(BY[c].g):""}</span><span class="meta">${esc(v.res)}</span><span class="num">${inr}／${all.length}人</span>`;}).join("")}</div>`;
+  document.getElementById("racecols").innerHTML=order.map(c=>{const v=RACE[c]; const all=v.rep.concat(v.m);
+    const fc={}; all.forEach(n=>{const f=fac(n); fc[f]=(fc[f]||0)+1;});
+    const mix=Object.entries(fc).sort((a,b)=>b[1]-a[1]).map(([f,k])=>`<span>${esc(f)} ${k}</span>`).join("");
+    const lst=all.map(n=>{const r=BY[n];
+      return r?`<button type="button" class="rrow" data-n="${esc(n)}"><span><b>${esc(n)}</b> <span class="meta">衆・${r.tc}回</span></span>${rchip(r.g)}<span class="rp${v.rep.includes(n)?" on":""}">${v.rep.includes(n)?"推薦人代表・選挙責任者":esc(topPost(n)||"")}</span></button>`
+        :`<div class="rrow" style="cursor:default"><span>${esc(n)} <span class="meta">参院</span></span><span class="meta">${esc(DATA.racefac[n]||"")}</span></div>`;}).join("");
+    return `<div class="racecol"><h3>${esc(c)}陣営</h3><div class="legend" style="gap:4px 12px">${mix}</div><div>${lst}</div></div>`;}).join("");
+}
+
+/* ---------- 詳細パネル ---------- */
+const panel=document.getElementById("panel"), scrim=document.getElementById("scrim");
+let lastFocus=null;
+function openDetail(n){
+  const r=BY[n]; if(!r) return;
+  if(panel.hidden) lastFocus=document.activeElement;
+  document.getElementById("pname").textContent=n;
+  document.getElementById("pkana").textContent=DATA.kana[n]||"";
+  document.getElementById("psub").textContent="衆議院議員 ・ "+r.d;
+  const posts=(POSTOF[n]||[]).map(p=>esc(p.label)).join("<br>")||"なし";
+  const kin=(KIN[n]||[]).map(k=>`${esc(relLabel(k))}：${k.inr?`<button type="button" data-n="${esc(k.o)}">${esc(k.o)}</button>`:esc(k.o)}${k.t?`<span class="note">（${esc(k.t)}）</span>`:""}`).join("<br>");
+  const same=r.p.length?ROWS.filter(x=>x.n!==n&&x.p.some(p=>r.p.includes(p))):[];
+  const c=CAR[n];
+  const wq=encodeURIComponent(n), gq=encodeURIComponent(n+" 衆議院議員 経歴");
+  document.getElementById("pbody").innerHTML=`
+   <dl class="dl">
+    <dt>派閥</dt><dd>${fchip(r.g)} ${esc(SHORT(r.g))} <span class="chip k-${r.k}">${KIND[r.k]}</span>${r.w?`<div class="note" style="margin-top:4px">${esc(r.w)}</div>`:""}</dd>
+    <dt>当選回数</dt><dd>${esc(termText(r))}（${esc(META.year)}年の選挙を含む）</dd>
+    <dt>初当選</dt><dd>${c.y}年${c.en&&!c.hosen?`の第${c.en}回衆院選`:"（補選）"}${c.gap>0?`<div class="note">初当選以降、当選しなかった総選挙が${c.gap}回ある</div>`:""}</dd>
+    <dt>年齢</dt><dd>${r.age}歳（${esc(META.agedate)}時点）</dd>
+    <dt>閣僚歴</dt><dd>${r.cabl&&r.cabl.length?r.cabl.map(esc).join("<br>"):"なし"}</dd>
+    <dt>選出</dt><dd>${esc(r.sk)}${r.sk==="比例復活"?`<div class="note">小選挙区で敗れ、比例${esc(r.bb)}ブロックで復活</div>`:""}</dd>
+    <dt>ポスト</dt><dd>${posts}</dd>
+    ${RACEOF[n]?`<dt>総裁選</dt><dd>${esc(RACEOF[n][0])}氏の${esc(RACEOF[n][1])}</dd>`:""}
+    <dt>血縁</dt><dd class="rel-list">${kin||'<span class="note">政治家の親族は見当たらない</span>'}</dd>
+   </dl>
+   ${same.length?`<div style="display:flex;flex-direction:column;gap:6px"><b style="font-size:13px">同じ都道府県の自民党当選者（${esc(r.p.join("・"))}）</b><div class="names">${same.map(x=>nbtn(x.n)).join("")}</div></div>`:""}
+   <div style="display:flex;flex-direction:column;gap:6px"><b style="font-size:13px">詳しい経歴</b>
+    <div class="ext"><a href="https://ja.wikipedia.org/wiki/${encodeURIComponent(r.wiki||n)}" target="_blank" rel="noopener">Wikipedia</a>
+    <a href="https://www.google.com/search?q=${gq}" target="_blank" rel="noopener">Google検索</a></div></div>`;
+  panel.hidden=false; scrim.hidden=false;
+  document.getElementById("pclose").focus();
+}
+function closeDetail(){panel.hidden=true;scrim.hidden=true;if(lastFocus&&lastFocus.focus)lastFocus.focus();}
+document.getElementById("pclose").addEventListener("click",closeDetail);
+scrim.addEventListener("click",closeDetail);
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!panel.hidden)closeDetail();});
+document.addEventListener("click",e=>{const b=e.target.closest("[data-n]"); if(b&&b.dataset.n&&BY[b.dataset.n]) openDetail(b.dataset.n);});
+
+/* ---------- タブ ---------- */
+const VIEWS=["faction","all","post","career","kin","region","race"];
+function show(v){
+  if(!VIEWS.includes(v)) v="faction";
+  VIEWS.forEach(x=>{document.getElementById("v-"+x).hidden=(x!==v);document.getElementById("t-"+x).setAttribute("aria-selected",String(x===v));});
+  try{ if(location.hash.slice(1)!==v) history.replaceState(null,"","#"+v); }catch(e){}
+}
+document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>show(b.dataset.view)));
+window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
+
+drawChart(); drawTerms(); drawAges(); drawGroups(); drawPosts(); drawCareer(); drawKin(); drawAll(); drawMap(); drawRegion(); drawRace();
+show(location.hash.slice(1));
+</script>
+
+</body>
+</html>
